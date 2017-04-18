@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.model.Role">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <association property="creatorid" resultMap="creator"/>
+  </resultMap>
+  
+  <resultMap type="com.model.Systemuser" id="creator">
+		 <id property="id" column="t_id"/>
+          <result property="t_user" column="t_user"/>
+          <result property="t_name" column="t_name"/>
+          <result property="t_mobilphone" column="t_mobilphone"/>
+          <result property="t_createtime" column="t_createtime"/>
+          <result property="t_password" column="t_password"/>
+		  <result property="t_status" column="t_status"/>
+	</resultMap>
+  
+  <insert id="save" parameterType="com.model.Role">
+  <selectKey resultType="java.lang.Integer"  order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() AS id
+	 </selectKey>
+     INSERT INTO  t_role(
+	   creatorid,
+	   name,
+	   description,
+	   createtime
+    )
+    VALUES(
+       #{creatorid},
+       #{name},
+       #{description},
+       #{createtime}
+      
+    )
+  </insert>
+  <select id="getOneById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+     select * from t_role where id=#{id}
+  </select>
+  
+  <select id="pageRole" resultMap="BaseResultMap">
+      select * from t_role where 1=1
+  </select>
+  
+  <delete id="delete"> 
+     delete from t_role where id in(${ids})
+  </delete>
+  
+  <update id="update">
+       update  t_role
+        set
+		   creatorid=#{creatorid},
+		   name=#{name},
+		   description=#{description},
+		   createtime=#{createtime}
+      where id=#{id}
+  </update>
+  </mapper>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.model.Article">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="article_id" jdbcType="INTEGER" property="id" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="article_title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="article_source" jdbcType="VARCHAR" property="source" />
+    <result column="article_username" jdbcType="VARCHAR" property="username" />
+    <result column="article_state" jdbcType="VARCHAR" property="status" />
+    <result column="article_img" jdbcType="VARCHAR" property="imgurl" />
+    <result column="article_time" jdbcType="TIMESTAMP" property="realeaseDate" />
+  </resultMap>
+  
+  <select id="findOne" parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+    SELECT
+		*
+	FROM
+		article_source
+	WHERE
+		article_id = #{id}
+	ORDER BY
+		article_id DESC
+  </select>
+  <select id="queryPage" resultMap="BaseResultMap">
+       SELECT
+		*
+		FROM
+			article_source
+		WHERE
+			article_id = #{id}
+  </select>
+  <select id="pageArticle" resultMap="BaseResultMap">
+    SELECT
+	 *
+	FROM
+		article_source
+	ORDER BY
+		article_id DESC
+  </select>
+  <select id="pageByConArticle" parameterType="com.model.pojo.PagePojo" resultMap="BaseResultMap">
+    SELECT
+	 *
+	FROM
+		article_source
+    WHERE 1=1
+  <if test='name != ""'>
+			AND article_title like '%${name}%'
+		</if>
+		<if test='type != ""'>
+			AND article_state=#{type}
+		</if>
+		<if test='beginTime != ""'>
+			<![CDATA[AND article_time>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND article_time<#{endTime} ]]>
+		</if>
+	ORDER BY
+		article_id
+  </select>
+  
+  <insert id="save" parameterType="com.model.Article">
+   <selectKey resultType="java.lang.Integer"  order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() AS id
+	 </selectKey>
+     INSERT INTO article_source (
+		article_title,
+		article_username,
+		article_source,
+		article_state,
+		keyword,
+		description,
+		article_time,
+	    content,
+	    url,
+	    imgurl
+	    
+	)
+	VALUES
+		(
+			#{title},
+			#{username},
+			#{source},
+			#{status},
+			#{keyword},
+			#{description},
+			#{realeaseDate},
+	        #{content},
+	        #{url},
+	        #{imgurl}
+	       
+		)
+  </insert>
+  
+  <update id="update" parameterType="com.model.Article">
+	 UPDATE 
+	     article_source
+	 SET 
+		 article_source = #{source},
+		 article_time = #{realeaseDate},
+		 article_title = #{title},
+		 article_username = #{username},
+		 description = #{description},
+		 keyword = #{keyword},
+		 article_state = #{status},
+		 content = #{content},
+		 url = #{url},
+		 imgurl=#{imgurl}
+		 
+	WHERE
+		article_id = #{id};
+  </update>
+  <delete id="deleteBacth" parameterType="com.model.pojo.DeletePojo">
+     delete from article_source where article_id in (${ids})
+  </delete>
+  
+  <!-- 查找当前的前一篇 -->
+  <select id="getPre" resultMap="BaseResultMap">
+     SELECT
+	  *
+	FROM
+		article_source
+	WHERE
+		article_id &lt; #{id}
+  </select>
+  
+   <!-- 查找当前的后一篇一篇 -->
+  <select id="getNext" resultMap="BaseResultMap">
+   SELECT
+	  *
+	FROM
+		article_source
+	WHERE
+		article_id > #{id}
+	LIMIT 1 
+  </select>
+  
+  <select id="frontPageArticle" resultMap="BaseResultMap">
+       SELECT
+		  *
+		FROM
+			article_source
+		WHERE
+			article_state = "已上线"
+		ORDER BY
+			article_time DESC
+  </select>
+  
+  <select id="findLatest" resultMap="BaseResultMap">
+        SELECT
+		  *
+		FROM
+			article_source
+		WHERE 
+		    article_state="已上线"
+		ORDER BY
+			article_time DESC
+		LIMIT 4
+  </select>
+  
+
+</mapper>

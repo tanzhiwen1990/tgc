@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.Surpporting_FacilitiesMapper">
+
+ <resultMap id="BaseResultMap" type="com.model.Surpporting_Facilities">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="supporting_facilities_id" jdbcType="INTEGER" property="id" />
+    <result column="supporting_facilities_name" jdbcType="VARCHAR" property="name" />
+    <result column="supporting_facilities_addr" jdbcType="VARCHAR" property="addr" />
+    <result column="supporting_facilities_state" jdbcType="VARCHAR" property="state" />
+    <result column="supporting_facilities_userName" jdbcType="VARCHAR" property="username" />
+    <result column="supporting_facilities_time" jdbcType="TIMESTAMP" property="time" />
+    <result column="supporting_facilities_picUrl" jdbcType="VARCHAR" property="picUrl" />
+  </resultMap>
+	<select id="pageSurpporting_Facilities" resultMap="BaseResultMap">
+		SELECT
+		supporting_facilities_id,supporting_facilities_name,supporting_facilities_addr,
+		supporting_facilities_state,supporting_facilities_userName,supporting_facilities_time,supporting_facilities_picUrl
+		FROM supporting_facilities
+		WHERE 1=1 ORDER BY supporting_facilities_id DESC
+	</select>
+	<!-- 条件查询 -->
+	  
+	<select id="pageByConSurpporting_Facilities" parameterType="com.model.pojo.PagePojo" resultMap="BaseResultMap">
+		SELECT
+		supporting_facilities_id,supporting_facilities_name,supporting_facilities_addr,
+		supporting_facilities_state,supporting_facilities_userName,supporting_facilities_time,supporting_facilities_picUrl
+		FROM supporting_facilities
+		WHERE 1=1
+		<if test='name != ""'>
+			AND supporting_facilities_name like '%${name}%'
+		</if>
+		<if test='type != ""'>
+			AND supporting_facilities_state=#{type}
+		</if>
+		<if test='beginTime != ""'>
+			<![CDATA[AND supporting_facilities_time>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND supporting_facilities_time<#{endTime} ]]>
+		</if>
+		ORDER BY supporting_facilities_id DESC
+	</select>
+	
+		<select id="findOne" parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+		SELECT
+		supporting_facilities_id,supporting_facilities_name,supporting_facilities_addr,
+		supporting_facilities_state,supporting_facilities_userName,supporting_facilities_time,supporting_facilities_picUrl
+		FROM supporting_facilities
+		 where supporting_facilities_id = #{id}
+	</select>
+	<!-- 条件查询 -->
+	
+	<!-- 删除单个或者多个 -->
+	<delete id="deleteBatch" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM supporting_facilities WHERE supporting_facilities_id in(${ids})
+	</delete>
+	<!-- 录入数据  -->
+	<insert id="save" parameterType="com.model.Surpporting_Facilities">
+		INSERT INTO supporting_facilities (
+		  supporting_facilities_name,
+		  supporting_facilities_addr,
+		  supporting_facilities_state,
+		  supporting_facilities_userName,
+		  supporting_facilities_time,
+		  supporting_facilities_picUrl
+		)
+		VALUES
+		  (
+		    #{name},
+		    #{addr},
+		    #{state},
+		    #{username},
+		    #{time},
+		    #{picUrl}
+		  )
+	</insert>
+	<!-- 修改数据 -->
+	<update id="update_Surpporting_Facilities" parameterType="com.model.Surpporting_Facilities">
+		update
+		  supporting_facilities
+		set
+		 supporting_facilities_name = #{name},
+		 supporting_facilities_addr = #{addr},
+		 supporting_facilities_state = #{state},
+		 supporting_facilities_username = #{username},
+		 supporting_facilities_time = #{time},
+		 supporting_facilities_picUrl = #{picUrl}
+		 where supporting_facilities_id = #{id}
+	</update>
+	
+	<!-- 录入数据  -->
+	<insert id="saveHouse_Supporting_Facilities" parameterType="com.model.pojo.House_Supporting_FacilitiesPojo">
+		INSERT INTO house_supporting_facilities (
+		  supporting_facilities_id,
+		  house_id
+		)
+		VALUES
+		  (#{supporting_facilities_id},#{house_id})
+	</insert>
+	<select id="selectHouse_Supporting_Facilities" resultType="com.model.pojo.House_Supporting_FacilitiesPojo">
+		SELECT
+		  a.`supporting_facilities_id`,a.`house_id`,b.`supporting_facilities_name`
+		FROM
+		  house_supporting_facilities a
+		  LEFT JOIN supporting_facilities b
+		    ON a.`supporting_facilities_id` = b.`supporting_facilities_id` WHERE a.`house_id`=#{0}
+	</select>
+	<delete id="deleteHouse_Supporting_Facilities" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM house_supporting_facilities WHERE house_id IN(${ids})
+	</delete>
+</mapper>

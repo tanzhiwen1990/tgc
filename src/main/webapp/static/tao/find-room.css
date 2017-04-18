@@ -1,0 +1,152 @@
+.m-content-warp h1{
+	height: 100px;
+	line-height: 100px;
+	font-size: 36px;
+	text-align: center;
+	border-bottom: 1px solid #d9d9d9;
+}
+.form-find{
+	width: 950px;
+	font-size: 14px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 66px;
+	margin-bottom: 100px;
+	text-align: center;
+	
+}
+.form-find span[id=btn-sub]{
+	margin-top: 76px;
+	width: 392px;
+	height: 48px;
+	background-color: #2b3d4a;
+	border-radius: 5px;
+	outline: none;
+	font-size: 18px;
+	line-height:48px;
+	color: #fff;
+	border:0 none;
+	display:block;
+	margin:0 auto;
+	cursor: pointer;
+}
+.form-find .form-list{
+	line-height: 28px;
+	margin-bottom: 16px;
+}
+.area-warp a{
+	float: left;
+	margin-left: 26px;
+}
+.form-find .form-list>b{
+	margin-left: 10px;
+	float: left;
+}
+.form-find .form-list>span{
+	float: left;
+	width: 80px;
+	text-align: right;
+	color: #333333;
+}
+.form-find .form-list input{
+	float: left;
+	width: 276px;
+	height: 26px;
+	line-height: 26px;
+	text-indent: 5px;
+	outline: none;
+	border:1px solid #d9d9d9;
+	border-radius: 3px;
+	
+}
+.form-find .form-list .f-warp{
+	width: 88px;
+	height: 26px;
+	border:1px solid #d9d9d9;
+	border-radius: 3px;
+	float: left;
+	color: #333333;
+	text-align: center;
+	margin-right: 26px;
+	cursor: pointer;
+}
+.form-find .form-list .f-warp.active{
+	border:1px solid #ff0000;
+	background: url(../img/tao/naike.png) no-repeat right bottom;
+}
+.form-find .form-list.loucheng input{
+	width: 30px;
+	height: 26px;
+	border: none;
+	margin-left: 8px;
+}
+.form-find .form-list.loucheng i{
+	float: left;
+	width: 16px;
+	height: 14px;
+	border-bottom: 1px solid #d9d9d9;
+	margin:0 6px;
+}
+.form-find .form-list .lou-warp{
+	float: left;
+	height: 26px;
+	width: 76px;
+	line-height: 26px;
+	border:1px solid #d9d9d9;
+	padding: 0 6px;
+	border-radius: 3px;
+}
+
+.area-trade a.active{
+	padding-bottom: 1px;
+	color: #ff0000;
+}
+.area-title a.unlimited{
+	padding-bottom: 1px;
+	color: #ff0000;
+}
+.area-title a.unlimited.active{
+	background:none;
+}
+.area-content{
+	border: 1px solid #ff0000;
+	border-radius: 5px;
+	margin-top: -1px;
+}
+.area-title a.active {
+    color: #ff0000;
+    background: url(../img/tao/redsanjiao.gif) no-repeat bottom center;
+}
+
+.area-hide{
+	border: 1px solid #ff0000;
+	border-radius: 5px;
+	margin-top: -1px;
+	display:none;
+}
+.area-content a.active{
+	color: #ff0000;
+}
+.area-content.hide{
+	display: none;
+}
+
+.form-find .form-list .Validform_checktip{
+	margin-left:8px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+	color:red;
+	font-size:12px;
+}
+
+.form-find .form-list  .Validform_wrong{
+	
+	margin-left:8px;
+	line-height:20px;
+	height:20px;
+	overflow:hidden;
+	color:red;
+	font-size:12px;
+}
+

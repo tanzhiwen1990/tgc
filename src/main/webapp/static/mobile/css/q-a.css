@@ -1,0 +1,107 @@
+body {
+    background-color: #f2f2f2;
+    /* padding-top: .9rem; */
+}
+.qa-title{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: .89rem;
+	border-bottom: 1px solid #e0e0e0;
+	font-size: .3rem;
+	background-color: #fff;
+	padding-left: .36rem;
+	padding-right: .36rem;
+}
+.qa-title .back-btn{
+	height: .37rem;
+	width: .2rem;
+	background: url(../img/back-btn.png) no-repeat center;
+	background-size: .2rem .37rem;
+}
+.qa-title .share{
+	height: .36rem;
+	width: .36rem;
+	background: url(../img/share.png) no-repeat center;
+	background-size: .36rem .36rem;
+}
+.news-content{
+	background-color: #fff;
+	margin-bottom: .18rem;
+}
+.news-content h2{
+	font-size: .36rem;
+	line-height: .6rem;
+	padding: .3rem;
+}
+.news-content img{
+	height: 90%;
+	width: 90%;
+}
+.news-content p{
+	font-size: .24rem;
+	color: #333;
+	line-height: .6rem;
+	text-indent: 2em;
+	padding: 0 .3rem;
+}
+.news-warp .news-item,.house-warp .house-item{
+	display: flex;
+	border-bottom: 1px solid #e0e0e0;
+	padding-bottom: .2rem;
+	padding-top: .2rem;
+	color: #383a41;
+}
+.news-item .img-warp,.house-warp .img-warp{
+	width: 2.3rem;
+	height: 1.72rem;
+}
+.news-item .text-warp,.house-warp .text-warp{
+	height: 1.72rem;
+	width: 4.52rem;
+	position: relative;
+	padding-left: .22rem;
+}
+.news-item .text-warp h2{
+	font-size: .3rem;
+	display: -webkit-box;
+	display: -moz-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+.news-item .text-warp span{
+	font-size: .24rem;
+	color: #666;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.house-warp .text-warp h2{
+	font-size: .3rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	margin-bottom: .06rem;
+}
+.house-warp .text-warp p{
+	font-size: .24rem;
+	color: #8b8b8b;
+	line-height: .42rem;
+}
+.house-warp .text-warp p span{
+	font-size: .3rem;
+	color: #ea3b24;
+}
+.news-content .news-title{
+	height: .4rem;
+	line-height: .4rem;
+	font-size: .22rem;
+	padding-left: .36rem;
+	padding-bottom: .3rem;
+}
+.news-title .time{
+	margin-left: .26rem;
+}

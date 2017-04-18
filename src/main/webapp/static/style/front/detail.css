@@ -1,0 +1,117 @@
+.font_right { margin-right:1rem}
+.font_left { margin-left:0.5rem}
+/*清真寺列表+评论*/
+.shop_page_mos { padding:0px; margin:0px; margin-bottom:0.5rem; box-shadow:none; min-height:1rem}
+.shop_page_mos p.abt { border-bottom:1px solid #eee; padding-bottom:0.5rem}
+.shop_page_mos p img {  width:1.2rem; margin-right:-0.3rem; position:relative; left:-0.2rem; vertical-align:middle}
+
+.shop_page_mos p span { float:right}
+.shop_page_mos .mos_pic ul { padding:0px; margin:0px; overflow:hidden; z-index:1; width:103%}
+.shop_page_mos .mos_pic ul li { float:left; height:4.5rem; width:31%; margin-right:2%}
+.shop_page_mos .mos_pic ul li img { width:100%}
+.shop_page_mos p img.cbt_mes { opacity:0.4;}
+.shop_page_mos_tit { overflow:hidden; min-height:1rem !important}
+.shop_page_mos_tit p.abt { padding-bottom:0.5rem}
+.shop_page_mos_tit { margin-bottom:0px;}
+.shop_page_mos_tit .card-content-inner { padding-bottom:0px}
+
+.mos_face { float:left; width:2.1rem; height:2.1rem; border-radius:100%; overflow:hidden; margin-right:0.5rem}
+.face_cl { clear:both; height:2.5rem; line-height:1.1rem}
+.face_cl span.cz_pj { float:right; line-height:1.3rem; position:relative; top:-1.1rem}
+.mos_face img { width:100%}
+
+.shop_page_mos p img.ca_tt { position:relative; top:-0.1rem; margin-right:0.1rem;}
+
+.mos_banner { height:8rem; width:auto; overflow:hidden; padding:0rem 0.75rem; margin-bottom: 1.5rem;}
+.mos_banner img { width:100%;height: 100%;}
+.pic_num { display:inline; background:#000; opacity:0.7; padding:0.1rem 0.5rem; position:absolute; right:0.5rem; bottom:0.5rem}
+
+/*列表*/
+.cz_mos_list { margin:0px}
+.cz_mos_list textarea.txt_mos { font-size:0.8rem; height:7rem; padding:0.5rem 0rem}
+.txt_comt { width:100%; height:5rem; padding:0.5rem; border:1px solid #ddd; box-shadow:none; background:#eee}
+.list-block .item-title { font-size:0.7rem}
+
+/*商户*/
+.cz_bq { position:relative; clear:both; padding:0.5rem 0rem 0rem 0rem;  height:auto; overflow:hidden}
+.cz_bq a { border-right:1px solid #eee; overflow:hidden;}
+.cz_bq a span,.cz_bq a img { float:left; position:relative; left:0.3rem}
+.cz_bq a img { top:-0.2rem; margin-right:0.2rem}
+.cz_bq a.tab-item { height:1.5rem; padding:0.5rem 0rem 0rem 0rem}
+
+.cz_ad { position:relative; clear:both; padding:0rem; height:1.5rem; overflow:hidden}
+.cz_ad a { border-right:0px; height:auto; overflow:hidden}
+.cz_ad a span,.cz_bq a img { float:left; position:relative; left:0rem}
+.cz_ad a img { top:-0.2rem; margin-right:0.2rem}
+.cz_ap { min-height:1rem}
+.cz_ad a span.tab-label { font-size:0.7rem !important}
+
+.mos_ct span { margin-right:0.8rem; white-space:nowrap; line-height:1.5rem }
+.cz_tel { height:auto; overflow:hidden; z-index:1; padding:0.6rem 0.75rem 0rem 0.75rem}
+.cz_tel_add {width:80%; float:left; border-right:1px solid #eee; height:2rem; margin-bottom:0px}
+.cz_tel_ico { float:left; width:20%; margin-bottom:0px}
+.shop_page_mos p.cz_tel_ico img { width:60%; margin-right:0px; left:0.8rem; top:-0.7rem}
+
+.bq_wj { background:#44CA55; border-radius:50px; padding:2px 5px}
+
+/*评论*/
+.face_cl span.cz_pj_cont { position:relative; top:-2.3rem}
+span.autap { border:1px solid #ddd; border-radius:3px; padding:0.2rem 0.7rem; position:relative; top:-0.3rem}
+span.autur { border:1px solid #eee; border-radius:3px; padding:0.1rem 0.4rem; position:relative; top:-0.3rem}
+
+/*相册图片*/
+.cz_photo { width:100%; height:100%}
+.pic_txt { position:absolute; width:100%; height:auto; left:0; bottom:0; padding:0.75rem; padding-bottom:3rem; z-index:15; background-color:rgba(0,0,0,0.5); color:#fff; font-size:0.7rem}
+
+/*个人主页*/
+.cz_pers:before{ background-color:#fff}
+.cz_pers { height:2rem}
+.pers_pic { min-height:1rem; margin-bottom:0rem}
+.cz_per_menu { padding:0.1rem 0.75rem}
+.cz_pers .tab-item { position:relative; left:1rem}
+.cz_pers .tab-item span.light { border-bottom:2px solid #3a3a3a}
+
+.pers_shop { background:#f8f8f8; clear:both; overflow:hidden; z-index:1}
+.pers_card { width:70%; float:left; padding:0rem; margin:0rem}
+.pers_shop_pic { width:30%; padding:0.5rem; float:left; height:4rem; overflow:hidden}
+.pers_shop_pic img { width:100%}
+
+.flo_face {  position:absolute; top:2.5rem; left:0; width:100%; height:auto;z-index:99}
+.pers_fac_pic { margin:0px auto; width:4rem; height:4rem;position:relative}
+.pers_fac_pic img { width:100%; border-radius:500px; overflow:hidden}
+.pers_fac_pic img.cz_vip { width:1.2rem; position:absolute; right:-0.1rem; bottom:-0.1rem; z-index:999}
+.pers_name,.pers_add { text-align:center}
+.pers_name img { width:0.6rem; margin-left:0.2rem}
+.pers_name { position:relative; left:0.2rem}
+
+.cz_gz { position:absolute; bottom:0px; left:0px; background:transparent; border:0px}
+.cz_gz:before { height:0px}
+
+/*商户评价*/
+.comt_pw ul { padding-left:0.75rem}
+.comt_pw ul li { height:2.2rem}
+.comt_pw ul li img { width:1.5rem; vertical-align:middle}
+.com_mes { padding:0.75rem}
+.pic_comt ul li.light { border:2px dashed #ccc; background:url(../../img/front/ico/tab_icon_potoadd.png) no-repeat; background-position:center; background-size:30%}
+
+.but-block { padding:0.75rem}
+.button { background:#3a3a3a; color:#fff; font-size:0.8rem; border:0px}
+.list-block .item-media+.item-pos { margin-left:0px}
+.list-block .item-media+.item-pos .item-after img { width:1.6rem}
+/*背景颜色*/
+.box_gray { background:#F6F6F6}
+.child-page header {
+    background: #1A1A1A;
+}
+
+.child-page .title {
+    color: #fff;
+}
+.child-page .bar .icon {
+    color: #fff;
+}
+
+.child-page .list-block{
+    margin:0;
+}
+.child-page header:after {height: 0px;}

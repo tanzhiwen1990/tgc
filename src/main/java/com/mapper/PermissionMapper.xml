@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.PermissionMapper">
+  <resultMap id="BaseResultMap" type="com.model.Permission">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="isroot" jdbcType="INTEGER" property="isroot" />
+    <result column="parentid" jdbcType="INTEGER" property="parentid" />
+    <result column="logo" jdbcType="INTEGER" property="logo" />
+    <result column="link" jdbcType="INTEGER" property="link" />
+  </resultMap>
+  
+  
+  <insert id="save" parameterType="com.model.Role">
+    <selectKey resultType="java.lang.Integer"  order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID() AS id
+	 </selectKey>
+     INSERT INTO  t_permission(
+	   name,
+	   url
+    )
+    VALUES(
+       #{name},
+       #{url}
+      
+    )
+  </insert>
+  <select id="getOneByUrl" parameterType="java.lang.String" resultMap="BaseResultMap">
+     select * from t_permission where url=#{permission}
+  </select>
+  
+  <select id="getPermissionByRoleId" resultType="java.util.Map" >
+    SELECT
+	   *
+   FROM
+	t_permission
+   WHERE
+	id IN (
+		SELECT
+			permissionid
+		FROM
+			t_rolepermission
+		WHERE
+			roleid = #{roleid}
+	)  and isroot=1
+
+  </select>
+  
+  <select id="getRolePermissionByRoleId" resultMap="BaseResultMap">
+     SELECT	* FROM t_permission WHERE id IN (ids)
+  </select>
+  <select id="getChildMenuByParentId" resultMap="BaseResultMap">
+     SELECT	* FROM t_permission WHERE parentid = #{id}
+  </select>
+  
+   <select id="getChildMenuByParentIdAndRoleId" resultMap="BaseResultMap">
+     SELECT
+		p.id,
+		p. NAME,
+		p.url,
+		p.link,
+		p.isroot,
+		p.parentid,
+		p.logo
+	FROM
+		t_rolepermission r
+	LEFT JOIN t_permission p ON r.permissionid = p.id
+	WHERE
+		r.roleid = #{roleid}
+	AND p.parentid = #{parentid}
+  </select>
+  <select id="getRoot" resultType="java.util.Map">
+      SELECT	* FROM t_permission WHERE isroot = 1
+  </select>
+  </mapper>

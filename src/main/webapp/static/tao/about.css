@@ -1,0 +1,53 @@
+.about-head{
+    float: left;
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+    overflow: hidden;
+}
+.about-head img{
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.about-main{
+    float: left;
+    width: 66%;
+    margin-left: 17%;
+    padding:  3.6% 0 0 0;
+}
+.about-main>span:first-child{
+    float: left;
+    width: 100%;
+    color: #0c1e2a;
+    font-size: 18px;
+    line-height: 46px;
+    border-bottom: #0c1e2a solid 2px;
+}
+.about-tab{
+    float: left;
+    width: 116px;
+    text-align: center;
+    cursor: pointer;
+}
+.about-main .active-about-a{
+    background-color: #0c1e2a;
+    color: #fff;
+}
+.about-main-ab{
+    float: left;
+    width: 100%;
+    padding: 2em 0;
+    text-indent: 2em;
+}
+.about-main-call{
+    float: left;
+    width: 38%;
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 0.8em;
+}
+#call-us img{
+    float: left;
+    width: 62%;
+}

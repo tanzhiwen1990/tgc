@@ -1,0 +1,416 @@
+.seach-input {
+	margin: 34px 0;
+}
+
+.seach-input input {
+    float: left;
+    width: 714px;
+    height: 45px;
+    line-height: 45px;
+    text-indent: 14px;
+    font-size: 18px;
+    border: 1px solid #0c1e2a;
+    border-radius: 3px;
+}
+
+.seach-input a {
+    float: left;
+    height: 45px;
+    width: 84px;
+    background-color: #0c1e2a;
+    border: 1px solid #0c1e2a;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.seach-title a.active, .seach-title a:hover {
+    background-color: #0c1e2a;
+    border: 1px solid #0c1e2a;
+    color: #fff;
+}
+
+.seach-title a {
+    width: 98px;
+    height: 38px;
+    float: left;
+    text-align: center;
+    line-height: 38px;
+    font-size: 16px;
+    color: #0c1e2a;
+    border: 1px solid #cccccc;
+}
+.seach-input a:hover{
+    background-color: #fff;
+    color: #0c1e2a;
+}
+
+.seach-lable-warp{
+	border: 1px solid #cccccc;
+	margin-top: 8px;
+	margin-bottom: 30px;
+	padding-left: 10px;
+	padding-bottom: 20px;
+	font-size: 14px;
+}
+.seach-lable-item{
+	height: 28px;
+	line-height: 28px;
+	margin-top: 20px;
+}
+.seach-lable-item>span{
+	float: left;
+	margin-right: 10px;
+}
+.seach-lable-item .lable-box{
+	float: left;
+}
+.lable-box>a{
+	float: left;
+	margin-right: 22px;
+	color: #000;
+}
+.lable-box a.active{
+	color: #d20000;
+	font-weight: bold;
+}
+.lable-box a:hover{
+	color: #d20000;
+	text-decoration: underline;
+}
+.price-range{
+	float: left;
+}
+.price-range input{
+	width: 70px;
+	height: 24px;
+	text-indent: 5px;
+	border :1px solid;
+	border-radius:3px;
+}
+.price-range a {
+    display: inline-block;
+    width: 74px;
+    height: 28px;
+    background-color: #0c1e2a;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+}
+.price-range span{
+	margin:0 5px;
+}
+
+.house-warp{
+	width: 808px;
+	border-top:1px solid #cccccc;
+	padding-top: 10px;
+	padding-bottom: 140px;
+	float: left;
+}
+.house-content{
+	margin-bottom: 40px;
+}
+.house-title{
+	float: right;
+}
+.house-title>a,.house-title input ,.house-title label{
+	float: left;
+	font-size: 14px;
+	color: #666;
+}
+.house-title>a{
+	height: 22px;
+	padding: 0 14px 0 8px;
+	line-height: 22px;
+	float: left;
+	border: 1px solid #ccc;
+	margin-left: 13px;
+	
+}
+
+.house-title a.cur{
+	border-bottom: 1px solid #ccc;
+}
+
+#more-pic{
+	margin-top: 3px;
+	margin-right: 2px;
+}
+.house-title>a span,.house-title>a i{
+	float: left;
+}
+.house-title>a i{
+	margin-left: 5px;
+	margin-top: 5px;
+	background: url(../img/tao/un-dowm.png) no-repeat right center;
+	width: 10px;
+	height: 13px;
+}
+.house-title a i{
+	display: inline-block;
+	height: 13px;
+	width: 10px;
+	background: url(../img/tao/un-dowm.png) no-repeat center;
+	margin-left: 5px;
+	position: relative;
+	top: 2px;
+}
+.house-title a.cur i{
+	background: url(../img/tao/down-on.png) no-repeat center;
+}
+.house-title a.cur{
+	color: #ff503f;
+}
+.house-title a.cur.cur-up i{
+	background: url(../img/tao/up-on.png) no-repeat center;
+}
+.house-item{
+	padding-top: 30px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #cccccc;	
+	height: 150px;
+}
+.house-item .img-warp{
+	width: 180px;
+	height: 150px;
+	float: left;
+	margin-right: 18px;
+}
+.house-item .img-warp img{
+	width: 100%;
+	height: 100%;
+}
+.house-item .text-warp{
+	float: left;
+	max-width: 366px;
+	overflow: hidden;
+}
+.house-item .text-warp h2 a{
+	font-size: 18px;
+	color: #333333;
+	font-weight: bold;
+}
+.house-item .text-warp h2{
+	margin-bottom: 20px;
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.house-item .text-warp p{
+	line-height: 30px;
+	font-size: 14px;
+	color: #666666;
+	/* display: -webkit-box; */
+	/* display: -moz-box; */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+}
+.house-item .rent,.house-item .acreage{
+	float: right;
+	margin-top: 50px;
+	line-height: 20px;
+}
+.house-item .rent p,.house-item .acreage p{
+	font-size: 18px;
+	color: #333333;
+}
+.house-item .rent span,.house-item .acreage span{
+	font-size: 14px;
+	color: #666666;
+}
+.house-item .acreage{
+	float: right;
+	margin-right: 40px;
+}
+.house-item .rent{
+	text-align: right;
+}
+.house-item .rent i{
+	font-style: normal;
+	font-size: 24px;
+	color: #cf4f5e;
+} 
+
+
+.house-right{
+	width: 270px;
+	float: right;
+}
+.house-right .go-buy,.house-right .go-lease{
+	display:block;
+	padding-left: 108px;
+	border: 1px solid #cc0000;
+	height: 44px;
+	line-height: 44px;
+	margin-bottom: 15px;
+	color: #cc0000;
+}
+.go-buy{
+	background: url(../img/tao/maifang.png) no-repeat 70px center;
+}
+.go-lease{
+	background: url(../img/tao/maifang1.png) no-repeat 70px center;
+}
+.house-right .warp-title{
+	padding: 0 5px;
+	height: 37px;
+	line-height: 37px;
+	border-bottom: 1px solid #eeeeee;
+}
+.house-right .warp-title p{
+	float: left;
+	font-size: 18px;
+	color: #333333;
+}
+.house-right .warp-title a{
+	float: right;
+	font-size: 14px;
+	color: #666666;
+}
+.house-right .warp-title a:hover{
+	color: #d20000;
+	text-decoration: underline;
+}
+.loupan-warp,.knowledge-warp{
+	border: 1px solid #cccccc;
+	margin-bottom: 20px;
+	padding: 0 5px;
+	padding-bottom: 15px;
+}
+.loupan-warp ul li{
+	height: 42px;
+	padding-top: 10px;
+	border-bottom: 1px solid #cccccc;;
+	padding-left: 5px;
+	font-size: 14px;
+}
+.loupan-warp ul a{
+	color: #cc0000;
+}
+.loupan-warp ul a:hover{
+	text-decoration: underline;
+}
+.loupan-warp ul a span{
+	color: #333333;
+	margin-left: 10px;
+}
+.loupan-warp ul p{
+	margin-top: 2px;
+}
+.loupan-warp ul p span{
+	margin-right: 50px;
+}
+.knowledge-warp ul{
+	padding: 10px 5px 0 5px ;
+}
+.knowledge-warp ul li{
+	height: 26px;
+	line-height: 26px;
+	font-size: 14px;
+	display: -webkit-box;
+	display: -moz-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+}
+.knowledge-warp ul li a{
+	color: #666;
+}
+.knowledge-warp ul li a:hover{
+	color: #d20000;
+	text-decoration: underline;
+}
+
+.area-content{
+	border: 1px solid #ff0000;
+	border-radius: 5px;
+	margin-top: -1px;
+	width:1000px;
+}
+
+.area-hide{
+	border: 1px solid #ff0000;
+	border-radius: 5px;
+	margin-top: -1px;
+	display:none;
+}
+.area-content a.active{
+	color: #ff0000;
+}
+.area-content.hide{
+	display: none;
+}
+.area-content a {
+    float: left;
+    margin-left: 26px;
+}
+
+.search-box a.re{
+	color: #ff0000;
+	background: url(../img/tao/redsanjiao.gif) no-repeat bottom center;
+}
+
+.seach-lable-item .search-box{
+	float: left;
+}
+.search-box>a{
+	float: left;
+	margin-right: 22px;
+	color: #000;
+}
+.search-box a.active{
+	color: #d20000;
+	font-weight: bold;
+}
+.search-box a:hover{
+	color: #d20000;
+	text-decoration: underline;
+}
+
+.noneoffice{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 16%;
+}
+.noneoffice img{
+    height: 216px;
+}
+
+.house-item-span{
+    float: left;
+    width: 100%;
+    height: 24px;
+    margin-top: -46px;
+}
+.house-item-span span{
+    float: left;
+    margin-left: 118px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    width: 62px;
+    background-color: #ff503f;
+    color: #fff;
+    font-size: 12px;
+}
+
+.change-price{
+    margin-left: 99px;
+    margin-top: 0;
+    background-color: #eeeeee;
+    padding: 3px 6px;
+    border-radius: 3px;
+}
+
+
+

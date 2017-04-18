@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.SeoMapper">
+
+ <resultMap id="BaseResultMap" type="com.model.Seo">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="seo_id" jdbcType="INTEGER" property="id" />
+    <result column="seo_title" jdbcType="VARCHAR" property="title" />
+    <result column="seo_describe" jdbcType="VARCHAR" property="description" />
+    <result column="seo_keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="seo_position" jdbcType="VARCHAR" property="position" />
+    <result column="seo_userName" jdbcType="VARCHAR" property="username" />
+    <result column="seo_time" jdbcType="TIMESTAMP" property="date" />
+  </resultMap>
+	<select id="pageSeo" resultMap="BaseResultMap">
+		SELECT
+		*
+		FROM
+		t_seo
+		WHERE 1=1 ORDER BY seo_id DESC
+	</select>
+	
+	<select id="findOne" parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+		SELECT
+		*
+		FROM t_seo
+		 where seo_id = #{id}
+	</select>
+	
+	<select id="search" parameterType="java.lang.String"  resultMap="BaseResultMap">
+		SELECT
+		*
+		FROM t_seo
+		 where seo_position = #{position}
+		 ORDER BY seo_time
+		 LIMIT 1
+	</select>
+	<!-- 条件查询 -->
+	  
+	<select id="pageByConSeo" resultMap="BaseResultMap">
+		SELECT
+		*
+		FROM
+		t_seo
+		WHERE 1=1  
+		
+		<if test='beginTime != ""'>
+			<![CDATA[AND seo_time>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND seo_time<#{endTime} ]]>
+		</if>
+		ORDER BY seo_id DESC
+	</select>
+	
+	<!-- 删除单个或者多个 -->
+	<delete id="delete" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM t_seo  WHERE seo_id in(${ids})
+	</delete>
+	<!-- 录入数据  -->
+	<insert id="save" parameterType="com.model.Seo">
+		INSERT INTO t_seo (
+		  seo_title,
+		  seo_describe,
+		  seo_keyword,
+		  seo_username,
+		  seo_position,
+		  seo_time
+		)
+		VALUES
+		  (
+		    #{title},
+		    #{description},
+		    #{keyword},
+		    #{username},
+		    #{position},
+		    #{date}
+		  )
+	</insert>
+	<!-- 修改数据 -->
+	<update id="update" parameterType="com.model.Seo">
+		update
+		  t_seo
+		set
+		 seo_title = #{title},
+		 seo_describe = #{description},
+		 seo_keyword = #{keyword},
+		 seo_position=#{position},
+		 seo_username = #{username},
+		 seo_time = #{date}
+		 where seo_id = #{id}
+	</update>
+	
+	
+</mapper>

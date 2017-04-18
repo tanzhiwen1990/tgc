@@ -1,0 +1,1115 @@
+
+.result_tip p {
+    background: #ffe1ba;
+    height: 37px;
+    line-height: 37px;
+    text-indent: 13px;
+}
+
+.result_tip ul {
+    line-height: 24px;
+    padding: 12px 0 0 12px;
+    min-height: 140px;
+}
+
+
+.BMap_stdMpCtrl div,
+.BMap_zoomer {
+	position: absolute
+}
+
+.traffic .search {
+	width: 1198px;
+	border: 1px solid #eee
+}
+
+.traffic .rt_search {
+	width: 308px;
+	height: 360px;
+	border-left: 1px solid #eee;
+	margin-left: 889px;
+	margin-top: -360px
+}
+
+.BMap_mask {
+	background: url(about:blank)
+}
+
+.BMap_noscreen {
+	display: none
+}
+
+.BMap_button {
+	cursor: pointer
+}
+
+.BMap_zoomer {
+	background-image: url(http://api.map.baidu.com/images/mapctrls1d3.gif);
+	background-repeat: no-repeat;
+	overflow: hidden;
+	font-size: 1px;
+	width: 7px;
+	height: 7px
+}
+
+.BMap_stdMpPan {
+	width: 44px;
+	height: 44px;
+	overflow: hidden;
+	background: url(http://api.map.baidu.com/images/mapctrls2d0.png) no-repeat
+}
+
+.BMap_ie6 .BMap_stdMpPan {
+	background: 0 0
+}
+
+.BMap_ie6 .BMap_smcbg {
+	left: 0;
+	width: 44px;
+	height: 464px;
+	filter: progid: DXImageTransform.Microsoft.AlphaImageLoader(src='http://api.map.baidu.com/images/mapctrls2d0.png')
+}
+
+.BMap_ie6 .BMap_stdMpPanBg {
+	z-index: -1
+}
+
+.BMap_stdMpPan .BMap_button {
+	height: 15px;
+	width: 15px
+}
+
+.BMap_panE,
+.BMap_panN,
+.BMap_panS,
+.BMap_panW {
+	overflow: hidden
+}
+
+.BMap_panN {
+	left: 14px;
+	top: 0
+}
+
+.BMap_panW {
+	left: 1px;
+	top: 12px
+}
+
+.BMap_panE {
+	left: 27px;
+	top: 12px
+}
+
+.BMap_panS {
+	left: 14px;
+	top: 25px
+}
+
+.BMap_stdMpZoom {
+	top: 45px;
+	overflow: hidden
+}
+
+.BMap_stdMpZoom .BMap_button {
+	width: 22px;
+	height: 21px;
+	left: 12px;
+	overflow: hidden;
+	background-image: url(http://api.map.baidu.com/images/mapctrls2d0.png);
+	background-repeat: no-repeat;
+	z-index: 10
+}
+
+.BMap_ie6 .BMap_stdMpZoom .BMap_button {
+	background: 0 0
+}
+
+.BMap_stdMpZoomIn {
+	background-position: 0 -221px
+}
+
+.BMap_stdMpZoomOut {
+	background-position: 0 -265px
+}
+
+.BMap_ie6 .BMap_stdMpZoomIn div {
+	left: 0;
+	top: -221px
+}
+
+.BMap_ie6 .BMap_stdMpZoomOut div {
+	left: 0;
+	top: -265px
+}
+
+.BMap_stdMpType4 .BMap_stdMpZoom .BMap_button {
+	left: 0;
+	overflow: hidden;
+	background: -webkit-gradient(linear, 50% 0, 50% 100%, from(rgba(255, 255, 255, .85)), to(rgba(217, 217, 217, .85)));
+	z-index: 10;
+	-webkit-border-radius: 22px;
+	width: 34px;
+	height: 34px;
+	border: 1px solid rgba(255, 255, 255, .5);
+	-webkit-box-shadow: 0 2px 3.6px #CCC;
+	display: -webkit-box;
+	-webkit-box-align: center;
+	-webkit-box-pack: center;
+	-webkit-box-sizing: border-box
+}
+
+.BMap_stdMpType4 .BMap_smcbg {
+	position: static;
+	background: url(http://api.map.baidu.com/images/mapctrls2d0_mb.png) no-repeat;
+	-webkit-background-size: 24px 32px
+}
+
+.BMap_stdMpType4 .BMap_stdMpZoomIn,
+.BMap_stdMpType4 .BMap_stdMpZoomOut {
+	background-position: 0 0
+}
+
+.BMap_stdMpType4 .BMap_stdMpZoomIn .BMap_smcbg {
+	width: 24px;
+	height: 24px;
+	background-position: 0 0
+}
+
+.BMap_stdMpType4 .BMap_stdMpZoomOut .BMap_smcbg {
+	width: 24px;
+	height: 6px;
+	background-position: 0 -25px
+}
+
+.BMap_stdMpSlider {
+	width: 37px;
+	top: 18px
+}
+
+.BMap_stdMpSliderBgTop {
+	left: 18px;
+	width: 10px;
+	overflow: hidden;
+	background: url(http://api.map.baidu.com/images/mapctrls2d0.png) -23px -226px no-repeat
+}
+
+.BMap_stdMpSliderBgBot {
+	left: 19px;
+	height: 8px;
+	width: 10px;
+	top: 124px;
+	overflow: hidden;
+	background: url(http://api.map.baidu.com/images/mapctrls2d0.png) -33px bottom no-repeat
+}
+
+.BMap_ie6 .BMap_stdMpSliderBgBot,
+.BMap_ie6 .BMap_stdMpSliderBgTop {
+	background: 0 0
+}
+
+.BMap_ie6 .BMap_stdMpSliderBgTop div {
+	left: -23px;
+	top: -226px
+}
+
+.BMap_ie6 .BMap_stdMpSliderBgBot div {
+	left: -33px;
+	bottom: 0
+}
+
+.BMap_stdMpSliderMask {
+	height: 100%;
+	width: 24px;
+	left: 10px;
+	cursor: pointer
+}
+
+.BMap_stdMpSliderBar {
+	height: 11px;
+	width: 19px;
+	left: 13px;
+	top: 80px;
+	overflow: hidden;
+	background: url(http://api.map.baidu.com/images/mapctrls2d0.png) 0 -309px no-repeat
+}
+
+.BMap_stdMpSliderBar.h {
+	background: url(http://api.map.baidu.com/images/mapctrls2d0.png) 0 -320px no-repeat
+}
+
+.BMap_ie6 .BMap_stdMpSliderBar,
+.BMap_ie6 .BMap_stdMpSliderBar.h {
+	background: 0 0
+}
+
+.BMap_ie6 .BMap_stdMpSliderBar div {
+	top: -309px
+}
+
+.BMap_ie6 .BMap_stdMpSliderBar.h div {
+	top: -320px
+}
+
+.BMap_zlCity,
+.BMap_zlCountry,
+.BMap_zlProv,
+.BMap_zlSt {
+	position: absolute;
+	left: 34px;
+	height: 21px;
+	width: 28px;
+	background-image: url(http://api.map.baidu.com/images/mapctrls2d0.png);
+	background-repeat: no-repeat;
+	font-size: 0;
+	cursor: pointer
+}
+
+.BMap_ie6 .BMap_zlCity,
+.BMap_ie6 .BMap_zlCountry,
+.BMap_ie6 .BMap_zlProv,
+.BMap_ie6 .BMap_zlSt {
+	background: 0 0;
+	overflow: hidden
+}
+
+.BMap_zlHolder {
+	display: none;
+	position: absolute;
+	top: 0
+}
+
+.BMap_zlHolder.hvr {
+	display: block
+}
+
+.BMap_zlSt {
+	background-position: 0 -380px;
+	top: 21px
+}
+
+.BMap_zlCity {
+	background-position: 0 -401px;
+	top: 57px
+}
+
+.BMap_zlProv {
+	background-position: 0 -422px;
+	top: 81px
+}
+
+.BMap_zlCountry {
+	background-position: 0 -443px;
+	top: 105px
+}
+
+.BMap_ie6 .BMap_zlSt div {
+	top: -380px
+}
+
+.BMap_ie6 .BMap_zlCity div {
+	top: -401px
+}
+
+.BMap_ie6 .BMap_zlProv div {
+	top: -422px
+}
+
+.BMap_ie6 .BMap_zlCountry div {
+	top: -443px
+}
+
+.BMap_stdMpType1 .BMap_stdMpSlider,
+.BMap_stdMpType2 .BMap_stdMpSlider,
+.BMap_stdMpType2 .BMap_stdMpZoom,
+.BMap_stdMpType3 .BMap_stdMpPan,
+.BMap_stdMpType3 .BMap_stdMpSlider,
+.BMap_stdMpType4 .BMap_stdMpPan,
+.BMap_stdMpType4 .BMap_stdMpSlider {
+	display: none
+}
+
+.BMap_stdMpType3 .BMap_stdMpZoom,
+.BMap_stdMpType4 .BMap_stdMpZoom {
+	top: 0
+}
+
+.BMap_cpyCtrl a {
+	font-size: 11px;
+	color: #7979CC
+}
+
+.BMap_scaleCtrl {
+	height: 23px;
+	overflow: hidden
+}
+
+.BMap_scaleCtrl div.BMap_scaleTxt {
+	font-size: 11px;
+	font-family: Arial, sans-serif
+}
+
+.BMap_scaleCtrl div {
+	position: absolute;
+	overflow: hidden
+}
+
+.BMap_scaleHBar img,
+.BMap_scaleLBar img,
+.BMap_scaleRBar img {
+	position: absolute;
+	width: 37px;
+	height: 442px;
+	left: 0
+}
+
+.BMap_scaleHBar {
+	width: 100%;
+	height: 5px;
+	font-size: 0;
+	bottom: 0
+}
+
+.BMap_scaleHBar img {
+	top: -437px;
+	width: 100%
+}
+
+.BMap_scaleLBar,
+.BMap_scaleRBar {
+	width: 3px;
+	height: 9px;
+	bottom: 0;
+	font-size: 0;
+	z-index: 1
+}
+
+.BMap_omMapContainer,
+.BMap_omOutFrame {
+	width: 100%;
+	height: 100%;
+	position: absolute
+}
+
+.BMap_scaleLBar img {
+	top: -427px;
+	left: 0
+}
+
+.BMap_scaleRBar img {
+	top: -427px;
+	left: -5px
+}
+
+.BMap_scaleLBar {
+	left: 0
+}
+
+.BMap_scaleRBar {
+	right: 0
+}
+
+.BMap_scaleTxt {
+	text-align: center;
+	width: 100%;
+	cursor: default;
+	line-height: 18px
+}
+
+.BMap_omCtrl {
+	background-color: #fff;
+	overflow: hidden
+}
+
+.BMap_omOutFrame {
+	left: 0;
+	top: 0
+}
+
+.BMap_omInnFrame {
+	position: absolute;
+	border: 1px solid #999;
+	background-color: #ccc;
+	overflow: hidden
+}
+
+.BMap_omMapContainer {
+	overflow: hidden;
+	left: 0;
+	top: 0
+}
+
+.BMap_omViewMv {
+	border-width: 1px;
+	border-style: solid;
+	position: absolute;
+	z-index: 600;
+	border-color: #adcff4 #274b8b #274b8b #84b0df
+}
+
+.BMap_omViewInnFrame {
+	border: 1px solid #3e6bb8
+}
+
+.BMap_omViewMask {
+	width: 1000px;
+	height: 1000px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #68c;
+	opacity: .2;
+	filter: alpha(opacity=20)
+}
+
+.BMap_omBtn {
+	height: 13px;
+	width: 13px;
+	position: absolute;
+	cursor: pointer;
+	overflow: hidden;
+	background: url(http://api.map.baidu.com/images/mapctrls1d3.gif) no-repeat;
+	z-index: 1210
+}
+
+.anchorBR .BMap_omOutFrame {
+	border-top: 1px solid #999;
+	border-left: 1px solid #999
+}
+
+.quad4 .BMap_omBtn {
+	background-position: -26px -27px
+}
+
+.quad4 .BMap_omBtn.hover {
+	background-position: 0 -27px
+}
+
+.quad4 .BMap_omBtn.BMap_omBtnClosed {
+	background-position: -39px -27px
+}
+
+.quad4 .BMap_omBtn.BMap_omBtnClosed.hover {
+	background-position: -13px -27px
+}
+
+.anchorTR .BMap_omOutFrame {
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999
+}
+
+.quad1 .BMap_omBtn {
+	background-position: -39px -41px
+}
+
+.quad1 .BMap_omBtn.hover {
+	background-position: -13px -41px
+}
+
+.quad1 .BMap_omBtn.BMap_omBtnClosed {
+	background-position: -26px -41px
+}
+
+.quad1 .BMap_omBtn.BMap_omBtnClosed.hover {
+	background-position: 0 -41px
+}
+
+.anchorBL .BMap_omOutFrame {
+	border-top: 1px solid #999;
+	border-right: 1px solid #999
+}
+
+.quad3 .BMap_omBtn {
+	background-position: -27px -40px
+}
+
+.quad3 .BMap_omBtn.hover {
+	background-position: -1px -40px
+}
+
+.quad3 .BMap_omBtn.BMap_omBtnClosed {
+	background-position: -40px -40px
+}
+
+.quad3 .BMap_omBtn.BMap_omBtnClosed.hover {
+	background-position: -14px -40px
+}
+
+.anchorTL .BMap_omOutFrame {
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999
+}
+
+.quad2 .BMap_omBtn {
+	background-position: -40px -28px
+}
+
+.quad2 .BMap_omBtn.hover {
+	background-position: -14px -28px
+}
+
+.quad2 .BMap_omBtn.BMap_omBtnClosed {
+	background-position: -27px -28px
+}
+
+.quad2 .BMap_omBtn.BMap_omBtnClosed.hover {
+	background-position: -1px -28px
+}
+
+.anchorR .BMap_omOutFrame {
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	border-top: 1px solid #999
+}
+
+.anchorL .BMap_omOutFrame {
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+	border-top: 1px solid #999
+}
+
+.anchorB .BMap_omOutFrame {
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999
+}
+
+.anchorT .BMap_omOutFrame {
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+	border-left: 1px solid #999
+}
+
+.anchorNon .BMap_omOutFrame,
+.withOffset .BMap_omOutFrame {
+	border: 1px solid #999
+}
+
+.BMap_zoomMask0,
+.BMap_zoomMask1 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(http://api.map.baidu.com/images/blank.gif);
+	z-index: 1000
+}
+
+.BMap_contextMenu {
+	position: absolute;
+	border-top: 1px solid #adbfe4;
+	border-left: 1px solid #adbfe4;
+	border-right: 1px solid #8ba4d8;
+	border-bottom: 1px solid #8ba4d8;
+	padding: 0;
+	margin: 0;
+	width: auto;
+	visibility: hidden;
+	background: #fff;
+	z-index: 10000000
+}
+
+.BMap_cmShadow {
+	position: absolute;
+	background: #000;
+	opacity: .3;
+	filter: alpha(opacity=30);
+	visibility: hidden;
+	z-index: 9000000
+}
+
+div.BMap_cmDivider {
+	border-bottom: 1px solid #adbfe4;
+	font-size: 0;
+	padding: 1px;
+	margin: 0 6px
+}
+
+div.BMap_cmFstItem {
+	margin-top: 2px
+}
+
+div.BMap_cmLstItem {
+	margin-bottom: 2px
+}
+
+.BMap_shadow img {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	height: 370px;
+	width: 1144px
+}
+
+.BMap_pop .BMap_top {
+	border-top: 1px solid #ababab;
+	background-color: #fff
+}
+
+.BMap_pop .BMap_center {
+	border-left: 1px solid #ababab;
+	border-right: 1px solid #ababab;
+	background-color: #fff
+}
+
+.BMap_pop .BMap_bottom {
+	border-bottom: 1px solid #ababab;
+	background-color: #fff
+}
+
+.BMap_shadow,
+.BMap_shadow div,
+.BMap_shadow img {
+	-moz-user-select: none;
+	-webkit-user-select: none
+}
+
+.BMap_checkbox {
+	background: url(http://api.map.baidu.com/images/mapctrls1d3.gif) -14px 90px;
+	vertical-align: middle;
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	margin-right: 4px
+}
+
+.BMap_checkbox.checked {
+	background-position: -2px 90px
+}
+
+.BMap_pop .BMap_bottom img,
+.BMap_pop .BMap_center img,
+.BMap_pop .BMap_top img {
+	display: none
+}
+
+@media print {
+	.BMap_noprint {
+		display: none
+	}
+	.BMap_noscreen,
+	.BMap_pop .BMap_bottom img,
+	.BMap_pop .BMap_center img,
+	.BMap_pop .BMap_top img {
+		display: block
+	}
+	.BMap_mask {
+		background: 0 0
+	}
+}
+
+.BMap_vectex {
+	cursor: pointer;
+	width: 11px;
+	height: 11px;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: 0 0
+}
+
+.BMap_vectex_nodeT {
+	background-image: url(http://api.map.baidu.com/images/nodeT.gif)
+}
+
+.BMap_vectex_node {
+	background-image: url(http://api.map.baidu.com/images/node.gif)
+}
+
+.rt_searchNav {
+	height: 39px;
+	margin-right: -1px
+}
+
+.rt_searchNav li {
+	float: left;
+	line-height: 38px;
+	width: 153px;
+	cursor: pointer;
+	border: 1px solid #eee;
+	border-left: none;
+	margin-top: -1px;
+	_position: relative;
+	font-size: 14px;
+	text-align: center
+}
+
+.rt_searchNav li.on {
+	border-top: solid 1px #f32e2e;
+	border-bottom: solid 1px #fff
+}
+
+.rt_searchBox {
+	display: none
+}
+
+.aroundIndex {
+	overflow: hidden;
+	margin: 30px auto 0;
+	padding: 12px 16px 0
+}
+
+.aroundIndex li {
+	float: left;
+	width: 52px;
+	text-align: center;
+	line-height: 30px;
+	margin-bottom: 10px;
+	padding: 0 20px;
+	cursor: pointer
+}
+
+.aroundNm {
+	background: #f3f3f3;
+	margin: 2px;
+	padding: 0 10px;
+	line-height: 28px
+}
+
+.aroundNm a {
+	float: right;
+	color: #333
+}
+
+.aroundNm a:hover {
+	color: #f32e2e
+}
+
+.aroundNm a img {
+	vertical-align: 1px;
+	padding-right: 2px
+}
+
+.aroundCon {
+	padding: 0 10px;
+	height: 284px;
+	overflow: auto;
+	*position: relative
+}
+
+.aroundCon ul {
+	overflow: hidden
+}
+
+.aroundCon li {
+	padding: 10px 0;
+	border-bottom: solid 1px #eee;
+	position: relative;
+	*zoom: 1
+}
+
+.letterIco {
+	display: block;
+	width: 18px;
+	line-height: 18px;
+	*line-height: 20px;
+	height: 27px;
+	font-weight: 700;
+	background: url(../img/map4.gif) no-repeat;
+	color: #fff;
+	text-align: center
+}
+
+.aroundCon .letterIco {
+	position: absolute;
+	top: 10px;
+	left: 0
+}
+
+.aroundCon dl {
+	padding-left: 28px;
+	line-height: 18px
+}
+
+.aroundCon dt {
+	color: #05a
+}
+
+.aroundCon dd {
+	color: #666;
+	padding-top: 5px
+}
+
+.mapPage {
+	width: 197px;
+	margin: 10px auto
+}
+
+.mapPage a {
+	padding: 0 4px
+}
+
+.mapPage a.last {
+	color: #333
+}
+
+.trafficType {
+	height: 33px
+}
+
+.trafficType li {
+	float: left;
+	width: 102px;
+	text-align: center;
+	border-bottom: #eee solid 1px;
+	line-height: 32px
+}
+
+.trafficType li.on {
+	border-bottom: #f32e2e solid 1px
+}
+
+.trafficType li span {
+	background: url(../img/map1.gif) no-repeat;
+	padding-left: 22px
+}
+
+.trafficType li span.bus {
+	background-position: 0 -210px
+}
+
+.trafficType li.on span.bus {
+	background-position: 0 -157px
+}
+
+.trafficType li span.car {
+	background-position: 0 -316px
+}
+
+.trafficType li.on span.car {
+	background-position: 0 -262px
+}
+
+.trafficType li span.step {
+	background-position: 0 -424px
+}
+
+.trafficType li.on span.step {
+	background-position: 0 -371px
+}
+
+.searchBox {
+	height: 81px;
+	border-bottom: solid 1px #eee;
+	background: url(../img/map1.gif) 10px 35px no-repeat;
+	position: relative
+}
+
+.searchBox .btn,
+.searchBox .inputBox {
+	float: right
+}
+
+.searchBox .inputBox {
+	width: 210px;
+	padding-right: 10px
+}
+
+.searchBox li {
+	height: 30px;
+	padding: 5px 0 5px 27px;
+	background: url(../img/map1.gif) no-repeat
+}
+
+.searchBox li.from {
+	background-position: 7px -38px;
+	border-bottom: solid 1px #eee
+}
+
+.searchBox li.to {
+	background-position: 7px -91px
+}
+
+.searchBox input {
+	width: 120px;
+	height: 30px;
+	_height: 22px;
+	_padding-top: 5px;
+	border: 0;
+	outline: 0;
+	font: 12px Microsoft Yahei;
+	overflow: visible
+}
+
+.searchBox a.btn {
+	width: 54px;
+	height: 51px;
+	padding-top: 30px;
+	display: inline-block;
+	text-align: center;
+	color: #333;
+	background: #f3f3f3
+}
+
+.searchBox a.btn:hover {
+	color: #fff;
+	background: #f32e2e;
+	text-decoration: none
+}
+
+.trafficLine {
+	height: 202px;
+	overflow: auto;
+	*position: relative;
+	display: none
+}
+
+.lineBox {
+	border: 1px solid #eee;
+	margin: 3px 3px 0
+}
+
+.lineBox .on,
+.lineDetail li {
+	border-bottom: solid 1px #eee
+}
+
+.lineBox .rarr {
+	font-size: 14px;
+	color: #05a;
+	padding: 0 4px
+}
+
+.lineBox .blue {
+	color: #05a
+}
+
+.lineBox .sline {
+	color: #ddd;
+	padding: 0 5px
+}
+
+.lineBox .mCon {
+	position: relative;
+	padding: 8px 25px;
+	line-height: 18px
+}
+
+.lineBox .mCon2 {
+	padding: 8px 10px
+}
+
+.lineBox .on {
+	background: #ebf2fd
+}
+
+.lineBox .mCon .num {
+	position: absolute;
+	top: 0;
+	left: 0;
+	_left: -25px;
+	color: #fff;
+	background: #79b7ee;
+	height: 16px;
+	line-height: 16px;
+	padding: 0 4px
+}
+
+.lineBox .on .num {
+	background: #0096e9
+}
+
+.lineDetail {
+	border-left: dashed 1px #eee;
+	margin-left: 14px;
+	padding-left: 20px;
+	display: none
+}
+
+.lineDetail li {
+	padding: 9px 0;
+	line-height: 18px;
+	position: relative;
+	margin-bottom: -1px
+}
+
+.lineDetail li .begin,
+.lineDetail li .end,
+.lineDetail li .step,
+.lineDetail li .subbus {
+	background: url(../img/map1.gif) no-repeat #fff;
+	height: 16px;
+	width: 13px;
+	position: absolute;
+	left: -26px;
+	top: 10px
+}
+
+.lineDetail li .begin {
+	background-position: 1px -483px;
+	height: 26px;
+	top: 0
+}
+
+.lineDetail li .drivecar,
+.lineDetail li .subways {
+	height: 16px;
+	width: 13px;
+	left: -27px;
+	position: absolute
+}
+
+.lineDetail li .subbus {
+	background-position: 0 -211px;
+	left: -27px
+}
+
+.lineDetail li .subways {
+	background: url(../img/map2.png) no-repeat #fff;
+	top: 12px
+}
+
+.lineDetail li .drivecar {
+	background: url(../img/map1.gif) 0 -315px no-repeat #fff;
+	top: 10px
+}
+
+.lineDetail li .step {
+	background-position: 0 -424px
+}
+
+.lineDetail li .end {
+	background-position: 1px -545px;
+	height: 26px;
+	bottom: 0
+}
+
+.lineDetail .blue {
+	padding: 0 2px
+}
+
+.lineDetail .distan {
+	position: absolute;
+	right: 10px;
+	color: #999
+}
+
+.lineDetail2 {
+	margin: 0;
+	padding: 0;
+	border: 0
+}
+
+.lineDetail2 li {
+	padding-left: 35px
+}
+
+.lineDetail2 li.begin {
+	background: url(../img/map1.gif) 10px -39px no-repeat
+}
+
+.lineDetail2 li.end {
+	background: url(../img/map1.gif) 10px -93px no-repeat
+}
+
+.searchBox .change_way {
+	background: url(../img/map1.gif) no-repeat rgba(0, 0, 0, 0);
+	cursor: pointer;
+	height: 12px;
+	left: 10px;
+	margin-top: -6px;
+	position: absolute;
+	top: 50%;
+	width: 12px
+}

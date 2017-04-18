@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                    http://www.springframework.org/schema/context
+                    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                    http://www.springframework.org/schema/tx
+                    http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+                    http://www.springframework.org/schema/aop
+                    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	<!-- 4，加载数据库连接池配置文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+	<!-- 5,使用第三方的数据库连接池dbcp -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="${initialSize}" />
+		<!-- 连接池最大数量 -->
+		<property name="maxActive" value="${maxActive}" />
+		<!-- 连接池最大空闲 -->
+		<property name="maxIdle" value="${maxIdle}" />
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="${minIdle}" />
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="${maxWait}" />
+	</bean>
+
+	<!-- 6,事务管理器 mybatis使用jdbc事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- 数据源 -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 7,事务通知 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 配置传播行为 -->
+		<tx:attributes>
+			<tx:method name="add*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="hui*" propagation="REQUIRED" />
+			<tx:method name="cha*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 8,aop配置 -->
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.serivce.*.*(..))" />
+	</aop:config>
+
+	<!-- 9，配置Mybatis的sqlsession工厂(SqlSessionFactory) -->
+	<bean id="SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" /><!-- 数据源 -->
+		<property name="configLocation" value="classpath:MyBatis/mybatis-config.xml"></property>
+		<!-- spring配置mybatis的mapper.xml(使用mapperLocations配置，则不需要mybatis的全局配置文件) -->
+		<property name="mapperLocations" value="classpath:com/mapper/*.xml" />
+	</bean>
+
+	<!-- 10,使用mapper批量扫描器扫描mapper接口 规则：mapper.xml和mapper.java在一个目录 且同名即可 扫描出来mapper，自动让spring容器注册，bean的id就是mapper类名(首字母小写) -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- sqlsession工厂 -->
+		<property name="sqlSessionFactoryBeanName" value="SqlSessionFactory" />
+		<property name="basePackage" value="com.mapper" /><!-- 扫描包路径 多个包中间用半角逗号分隔 -->
+	</bean>
+	<!-- FreeMarker视图解析器  --> 
+	<bean id="freemarkerConfig"  
+      class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+    <property name="templateLoaderPath" value="/WEB-INF/view/" />  
+    <property name="freemarkerSettings">  
+        <props>  
+            <prop key="template_update_delay">0</prop>  
+            <prop key="default_encoding">UTF-8</prop>  
+            <prop key="number_format">0.##########</prop>  
+            <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>  
+            <prop key="classic_compatible">true</prop>  
+            <prop key="template_exception_handler">ignore</prop>  
+        </props>  
+    </property>  
+</bean>  
+</beans>

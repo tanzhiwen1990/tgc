@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.mapper.SystemuserMapper" >
+	<!-- 管理员登录 -->
+	<select id="LoginSystemuser" parameterType="com.model.Systemuser" resultType="com.model.Systemuser">
+		SELECT t_id,t_user,t_name,t_realname,t_mobilphone,t_status,t_createtime,t_password,roleid FROM t_systemuser WHERE t_user=#{t_user} AND t_password=#{t_password}
+	</select>
+	
+	<resultMap type="com.model.Systemuser" id="user">
+		<id property="t_id" column="t_id"/>
+		<result property="t_user"  column="t_user"/>
+		<result property="t_name"  column="t_name"/>
+		<result property="t_realname"  column="t_realname"/>
+		<result property="roleid"  column="roleid"/>
+		<result property="t_mobilphone"  column="t_mobilphone"/>
+		<result property="t_status"  column="t_status"/>
+		<result property="t_createtime"  column="t_createtime"/>
+		<result property="t_password"  column="t_password"/>
+	</resultMap>
+	<resultMap type="com.model.District" id="DistrictMap">
+		<id property="district_id" column="district_id"/>
+		<result property="district_name"  column="district_name"/>
+	</resultMap>
+	<resultMap type="com.model.pojo.CityPojo" id="CityMap">
+		<id property="city_id" column="city_id"/>
+		<result property="city_name"  column="city_name"/>
+		<collection property="list" resultMap="DistrictMap"/>
+	</resultMap>
+	<!-- 缓存城市和区县 -->
+	<select id="cacheCity" resultMap="CityMap">
+		select * from city a left join district b on a.`city_id`=b.`city_id`
+	</select>
+	<resultMap type="com.model.District" id="district">
+		<id column="district_id" property="district_id"/>
+		<result column="district_name" property="district_name"/>
+	</resultMap>
+	<resultMap type="com.model.Trade_Area" id="trade_Area">
+		<id property="trade_area_id" column="trade_area_id"/>
+		<result property="trade_area_name"  column="trade_area_name"/>
+		<result property="trade_area_text"  column="trade_area_text"/>
+		<result property="trade_area_ishot"  column="trade_area_ishot"/>
+		<result property="trade_area_sort"  column="trade_area_sort"/>
+		<result property="trade_area_state"  column="trade_area_state"/>
+		<result property="trade_area_name"  column="trade_area_name"/>
+		<result property="trade_area_username"  column="trade_area_username"/>
+		<result property="trade_area_time"  column="trade_area_time"/>
+		<result property="trade_area_img"  column="trade_area_img"/>
+		<association property="district_id" resultMap="district" javaType="com.model.District" />
+	</resultMap>
+	<!-- 缓存商圈 -->
+	<select id="cacheTrade_Area" resultMap="trade_Area">
+		SELECT * FROM trade_area a LEFT JOIN district b ON a.`district_id`=b.`district_id`
+	</select>
+	<resultMap type="com.model.Building" id="building">
+		<id column="building_id" property="building_id"/>
+		<result column="building_name" property="building_name"/>	
+		<result column="building_addr" property="building_addr"/>	
+		<result column="building_rent" property="building_rent"/>	
+		<result column="building_price" property="building_price"/>	
+		<result column="building_year" property="building_year"/>	
+		<result column="building_car" property="building_car"/>	
+		<result column="building_car_money" property="building_car_money"/>	
+		<result column="building_floor" property="building_floor"/>	
+		<result column="building_houseNum" property="building_houseNum"/>	
+		<result column="building_property" property="building_property"/>	
+		<result column="building_property_money" property="building_property_money"/>	
+		<result column="building_developers" property="building_developers"/>	
+		<result column="building_repairtime" property="building_repairtime"/>	
+		<result column="building_acreage" property="building_acreage"/>	
+		<result column="building_level" property="building_level"/>	
+		<result column="building_traffic" property="building_traffic"/>	
+		<result column="building_state" property="building_state"/>	
+		<result column="building_userName" property="building_userName"/>	
+		<result column="building_time" property="building_time"/>	
+		<result column="building_sort" property="building_sort"/>	
+		<result column="SEO_title" property="SEO_title"/>	
+		<result column="SEO_describe" property="SEO_describe"/>	
+		<result column="SEO_keyword" property="SEO_keyword"/>	
+		<result column="building_abridgeName" property="building_abridgeName"/>	
+		<association property="trade_area_id" resultMap="trade_Area" />
+	</resultMap>
+	<!-- 楼盘缓存 -->
+	<select id="cacheBuilding" resultMap="building">
+		SELECT * FROM building a LEFT JOIN trade_area b ON a.`trade_area_id`=b.`trade_area_id`
+	</select>
+	<resultMap type="com.model.pojo.PropertyPojo" id="property">
+		<id column="property_id" property="property_id"/>
+		<result column="property_type" property="property_type"/>
+		<result column="property_describe" property="property_describe"/>
+		<result column="property_state" property="property_state"/>
+		<result column="property_userName" property="property_userName"/>
+	</resultMap>
+	<!-- 物业类型缓存 -->
+	<select id="cacheProperty" resultMap="property">
+		SELECT * FROM property
+	</select>
+	
+	<select id="pageSystemUser" resultType="com.model.Systemuser">
+	   select * from t_systemuser where t_user!='admin'
+	   ORDER BY t_id DESC
+	</select>
+	<select id="getOneById" parameterType="java.lang.Integer"   resultType="com.model.Systemuser">
+	   select * from t_systemuser where t_id=#{id}
+	</select>
+	
+	<select id="pageSystemUserByCon" resultType="com.model.Systemuser">
+	   select * from t_systemuser
+	   where 1=1 and  t_user!='admin'
+		<if test='beginTime != ""'>
+			<![CDATA[AND t_createtime>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND t_createtime<#{endTime} ]]>
+		</if>
+		ORDER BY t_id DESC
+	</select>
+	
+	<insert id="save" parameterType="com.model.Systemuser">
+	   insert into t_systemuser(
+		   t_user,
+		   t_name,
+		   t_realname,
+		   t_password,
+		   roleid,
+		   t_createtime,
+		   t_status
+	   )
+	   VALUES(
+	      #{t_user},
+		  #{t_name},
+		  #{t_realname},
+		  #{t_password},
+		  #{roleid},
+		  #{t_createtime},
+		  #{t_status}
+	   )
+	</insert>
+	<update id="update">
+	   update t_systemuser set 
+	      t_user=#{t_user},
+	      t_name=#{t_name},
+	      t_realname=#{t_realname},
+	      t_password=#{t_password},
+	      roleid=#{roleid},
+	      t_createtime= #{t_createtime},
+	      t_status=#{t_status}
+	      where t_id=#{t_id}
+	      
+	</update>
+	<delete id="delete">
+	  delete from t_systemuser where t_id in(${ids})
+	</delete>
+	
+	
+	<select id="getRoleByRoleId" resultType="java.util.Map">
+	  select * from t_role where id=#{roleid}
+	</select>
+</mapper>

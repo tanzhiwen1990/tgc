@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.model.UserInfo">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="u_id" jdbcType="INTEGER" property="id" />
+     <id column="u_sex" jdbcType="INTEGER" property="sex" />
+    <result column="u_openid" jdbcType="VARCHAR" property="openid" />
+    <result column="u_city" jdbcType="VARCHAR" property="city" />
+    <result column="u_province" jdbcType="VARCHAR" property="province" />
+    <result column="u_country" jdbcType="VARCHAR" property="country" />
+    <result column="u_headimgurl" jdbcType="VARCHAR" property="headimgurl" />
+    <result column="u_nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="u_date" jdbcType="TIMESTAMP" property="date" />
+  </resultMap>
+  
+  <insert id="save" parameterType="com.model.UserInfo">
+  
+     INSERT INTO  t_userinfo(
+	    u_sex,
+	    u_openid,
+	    u_city,
+	    u_province,
+	    u_country,
+	    u_headimgurl,
+	    u_nickname,
+	    u_date
+    )
+    VALUES(
+       #{sex},
+       #{openid},
+       #{city},
+       #{province},
+       #{country},
+       #{headimgurl},
+       #{nickname},
+       #{date}
+    )
+  </insert>
+  <select id="get" parameterType="java.lang.String" resultMap="BaseResultMap">
+     select * from t_userinfo where u_openid=#{openid}
+  </select>
+  
+  <select id="pageUserInfo" resultMap="BaseResultMap">
+      select * from t_userinfo where 1=1
+  </select>
+  </mapper>

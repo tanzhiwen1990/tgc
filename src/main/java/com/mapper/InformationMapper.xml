@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.InformationMapper">
+
+   <resultMap id="BaseResultMap" type="com.model.Information">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="information_id" jdbcType="INTEGER" property="id" />
+    <result column="information_name" jdbcType="VARCHAR" property="title" />
+    <result column="information_url" jdbcType="VARCHAR" property="url" />
+    <result column="information_miurl" jdbcType="VARCHAR" property="img" />
+    <result column="information_describe" jdbcType="VARCHAR" property="description" />
+    <result column="information_platform" jdbcType="VARCHAR" property="platform"/>
+    <result column="information_state" jdbcType="VARCHAR" property="status"/>
+    <result column="information_time" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="information_userName" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+  
+  <!-- 根据id查找Information -->
+  <select id="findOne" resultMap="BaseResultMap">
+     SELECT
+		information_id,
+		information_describe,
+		information_name,
+		information_state,
+		information_platform,
+		information_url,
+		information_miurl,
+		information_userName,
+		information_time
+	FROM
+		information
+	WHERE
+		information_id = #{id}
+  </select>
+  
+  <select id="pageInfomation" resultMap="BaseResultMap">
+    SELECT
+	  *
+	FROM
+		information
+	ORDER BY information_id DESC
+  </select>
+  
+  <select id="pageByConInformation" resultMap="BaseResultMap">
+      SELECT
+		information_id,
+		information_describe,
+		information_name,
+		information_platform,
+		information_state,
+		information_url,
+		information_miurl,
+		information_userName,
+		information_time
+	FROM
+		information
+	WHERE 1=1
+	<if test='beginTime != ""'>
+			<![CDATA[AND information_time>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND information_time<#{endTime} ]]>
+		</if>
+		ORDER BY information_id DESC
+  </select>
+  
+  <insert id="save" parameterType="com.model.Information" >
+     INSERT INTO information (
+		information_describe,
+		information_name,
+		information_platform,
+		information_state,
+		information_url,
+		information_miurl,
+		information_userName,
+		information_time
+	)
+	VALUES
+		(
+			#{description},
+			#{title},
+			#{platform},
+			#{status},
+			#{url},
+			#{img},
+			#{username},
+			#{updateDate}
+		)
+  </insert>
+  
+  <update id="update" parameterType="com.model.Information">
+    UPDATE 
+       information
+    SET 
+		 information_describe = #{description},
+		 information_name = #{title},
+		 information_state = #{status},
+		 information_platform = #{platform},
+		 information_url = #{url},
+		 information_miurl = #{img},
+		 information_userName = #{username},
+		 information_time= #{updateDate}
+	WHERE
+		information_id = #{id};
+  </update>
+  
+  <delete id="batchDelete">
+     DELETE
+	FROM
+		information
+	WHERE
+		information_id IN(${ids})
+  </delete>
+  
+  <select id="findLatest" resultMap="BaseResultMap">
+        SELECT
+			*
+		FROM
+			information
+		where information_state="已上线"
+		ORDER BY
+			information_time DESC
+  </select>
+  
+ <select id="getPre" resultMap="BaseResultMap">
+     SELECT
+	  *
+	FROM
+		information
+	WHERE
+		information_state = "已上线"
+	AND
+		information_id &lt; #{id}
+  </select>
+  
+  <select id="getNext" resultMap="BaseResultMap">
+     SELECT
+	  *
+	FROM
+		information
+	WHERE
+		information_state = "已上线"
+	AND
+		information_id &gt; #{id}
+  </select>
+</mapper>

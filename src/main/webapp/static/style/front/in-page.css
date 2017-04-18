@@ -1,0 +1,56 @@
+
+.ehl-in-page{
+    background-color: #fff;
+}
+.ehl-in-page header {
+    background: #1A1A1A;
+}
+.ehl-in-page .title {
+    color: #fff;
+}
+.ehl-in-page .bar .icon {
+    color: #fff;
+}
+.ehl-in-page .list-block{
+    margin:0;
+}
+.ehl-in-page .item-title{
+    font-size: .78rem;
+}
+.ehl-in-page .item-message-time{
+    float: right;
+    font-size: .6rem;
+    margin-top: .1rem;
+}
+.ehl-in-page .list-block.media-list .item-inner{
+    padding-top: .75rem;
+    padding-bottom: .5rem;
+}
+
+.ehl-in-page .list-block ul .item-content:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    width: 100%;
+    background-color: #e7e7e7;
+}
+
+.ehl-in-page .list-block .item-content .item-media img{
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50px;
+}
+
+.ehl-in-page .list-block .item-content .item-subtitle{
+    margin-top: .2rem;
+}
+.ehl-in-page .sex-img{
+    width: 1rem;
+    height: 1rem;
+    margin-left: .5rem;
+}

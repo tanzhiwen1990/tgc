@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.ProblemMapper">
+
+ <resultMap id="BaseResultMap" type="com.model.Problem">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="knowledge_id" jdbcType="INTEGER" property="id" />
+    <result column="knowledge_title" jdbcType="VARCHAR" property="title" />
+    <result column="knowledge_describe" jdbcType="VARCHAR" property="description" />
+    <result column="knowledge_name" jdbcType="VARCHAR" property="name" />
+    <result column="knowledge_content" jdbcType="VARCHAR" property="content" />
+    <result column="knowledge_url" jdbcType="VARCHAR" property="url" />
+    <result column="knowledge_state" jdbcType="VARCHAR" property="status" />
+     <result column="knowledge_img" jdbcType="VARCHAR" property="imgurl" />
+    <result column="knowledge_userName" jdbcType="VARCHAR" property="username" />
+    <result column="knowledge_time" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  
+  <!-- 添加 -->
+  <insert id="save" parameterType="com.model.Problem">
+    INSERT INTO knowledge (
+	knowledge_title,
+	knowledge_describe,
+	knowledge_name,
+	knowledge_content,
+	knowledge_url,
+	knowledge_state,
+	knowledge_username,
+	knowledge_time,
+	knowledge_img
+	)
+	VALUES
+		(
+			#{title},
+			#{description},
+			#{name},
+			#{content},
+			#{url},
+			#{status},
+			#{username},
+			#{updateDate},
+			#{imgurl}
+		)
+  </insert>
+  
+  <!-- 修改 -->
+  <update id="update" parameterType="com.model.Problem">
+    update knowledge 
+      set
+        knowledge_title=#{title},
+		knowledge_describe=#{description},
+		knowledge_name=#{name},
+	    knowledge_content=#{content},
+		knowledge_url=#{url},
+		knowledge_state=#{status},
+		knowledge_username=#{username},
+		knowledge_time=#{updateDate},
+		knowledge_img=#{imgurl}
+	 where  knowledge_id=#{id}
+  </update>
+  
+  <!-- 查找 单个-->
+  <select id="findOne" resultMap="BaseResultMap">
+    select * from knowledge where knowledge_id=#{id}
+  </select>
+  
+  <!-- delete -->
+  <delete id="batchDelete" >
+     delete from knowledge where knowledge_id in (${ids})
+  </delete>
+  
+  <!-- 按条件分页 -->
+  <select id="pageProblemByCon" resultMap="BaseResultMap">
+     SELECT
+		*
+	 FROM
+		knowledge
+	 WHERE 1=1
+	 <if test="beginTime!=null and beginTime!=''">
+	    <![CDATA[AND knowledge_time > #{beginTime}]]>
+	 </if>
+	<if test="endTime!=null and endTime!=''">
+	   <![CDATA[AND knowledge_time < #{endTime}]]>
+	 </if>
+	 
+  </select>
+  
+    <!-- 分页 -->
+  <select id="getProblem" resultMap="BaseResultMap">
+     SELECT
+		*
+	 FROM
+		knowledge
+	Order by 
+	knowledge_time DESC
+  </select>
+  
+  <select id="frontPageProblem" resultMap="BaseResultMap">
+       SELECT
+		  *
+		FROM
+			knowledge
+		WHERE
+			knowledge_state = "已上线"
+		ORDER BY
+			knowledge_time DESC
+  </select>
+</mapper>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.PropertyMapper">
+
+ <resultMap id="BaseResultMap" type="com.model.Property">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="property_id" jdbcType="INTEGER" property="id" />
+    <result column="property_type" jdbcType="VARCHAR" property="type" />
+    <result column="property_describe" jdbcType="VARCHAR" property="description" />
+    <result column="property_state" jdbcType="VARCHAR" property="state" />
+    <result column="property_userName" jdbcType="VARCHAR" property="username" />
+    <result column="property_time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+	<select id="pageProperty" resultMap="BaseResultMap">
+		SELECT
+		property_id,property_type,property_describe,
+		property_state,property_userName,property_time
+		FROM property
+		WHERE 1=1 ORDER BY property_id DESC
+	</select>
+	
+	<select id="findOne" parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+		SELECT
+		property_id,property_type,property_describe,
+		property_state,property_userName,property_time
+		FROM property
+		 where property_id = #{id}
+	</select>
+	<!-- 条件查询 -->
+	  
+	<select id="pageByConProperty" parameterType="com.model.pojo.PagePojo" resultMap="BaseResultMap">
+		SELECT
+		property_id,property_type,property_describe,
+		property_state,property_userName,property_time
+		FROM property
+		WHERE 1=1
+		<if test='name != ""'>
+			AND property_type like '%${name}%'
+		</if>
+		<if test='type != ""'>
+			AND property_state=#{type}
+		</if>
+		<if test='beginTime != ""'>
+			<![CDATA[AND property_time>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND property_time<#{endTime} ]]>
+		</if>
+		ORDER BY property_id DESC
+	</select>
+	
+	<!-- 删除单个或者多个 -->
+	<delete id="delete_property" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM property WHERE property_id in(${ids})
+	</delete>
+	<!-- 录入数据  -->
+	<insert id="insert_property" parameterType="com.model.Property">
+		INSERT INTO property (
+		  property_id,
+		  property_type,
+		  property_describe,
+		  property_state,
+		  property_username,
+		  property_time
+		)
+		VALUES
+		  (
+		    #{id.id},
+		    #{type},
+		    #{description},
+		    #{state},
+		    #{username},
+		    #{time}
+		  )
+	</insert>
+	<!-- 修改数据 -->
+	<update id="update_property" parameterType="com.model.Property">
+		update
+		  property
+		set
+		 property_type = #{type},
+		 property_describe = #{description},
+		 property_state = #{state},
+		 property_username = #{username},
+		 property_time = #{time}
+		 where property_id = #{id}
+	</update>
+	
+	<select id="queryPropertyByStatus"  resultMap="BaseResultMap">
+		SELECT
+		property_id,property_type,property_describe,
+		property_state,property_userName,property_time
+		FROM property 
+		WHERE property_state='已上线'
+		ORDER BY property_id DESC
+	</select>
+</mapper>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.FindMapHouseMapper">
+	<resultMap type="com.model.Child_Domain" id="child_Domain">
+		<id column="child_domain_id" property="child_domain_id"/>
+		<result column="child_domain_name" property="child_domain_name"/>
+	</resultMap>
+	<resultMap type="com.model.Property" id="property">
+		<id column="property_id" property="id"/>
+		<result column="property_type" property="type"/>
+		<result column="property_describe" property="description"/>
+		<result column="property_state" property="username"/>
+		<result column="property_userName" property="state"/>
+		<result column="property_time" property="time"/>
+	</resultMap>
+	<resultMap type="com.model.City" id="city">
+		<id column="city_id" property="city_id"/>
+		<result column="city_name" property="city_name"/>
+	</resultMap>
+	<resultMap type="com.model.District" id="district">
+		<id column="district_id" property="district_id"/>
+		<result column="district_name" property="district_name"/>
+		<association property="city_id" resultMap="city"/>
+	</resultMap>
+	<resultMap type="com.model.Trade_Area" id="trade_area">
+		<id column="trade_area_id" property="trade_area_id"/>
+		<result column="trade_area_name" property="trade_area_name"/>
+		<result column="trade_area_text" property="trade_area_text"/>
+		<result column="trade_area_ishot" property="trade_area_ishot"/>
+		<result column="trade_area_sort" property="trade_area_sort"/>
+		<result column="trade_area_state" property="trade_area_state"/>
+		<result column="trade_area_username" property="trade_area_username"/>
+		<result column="trade_area_time" property="trade_area_time"/>
+		<result column="trade_area_img" property="trade_area_img"/>
+		<association property="district_id" resultMap="district" javaType="com.model.District">
+		</association>
+	</resultMap>
+	<resultMap type="com.model.Building" id="building">
+		<id column="building_id" property="building_id"/>
+		<result column="building_name" property="building_name"/>	
+		<result column="building_addr" property="building_addr"/>	
+		<result column="building_rent" property="building_rent"/>	
+		<result column="building_price" property="building_price"/>	
+		<result column="building_year" property="building_year"/>	
+		<result column="building_car" property="building_car"/>	
+		<result column="building_car_money" property="building_car_money"/>	
+		<result column="building_floor" property="building_floor"/>	
+		<result column="building_houseNum" property="building_houseNum"/>	
+		<result column="building_property" property="building_property"/>	
+		<result column="building_property_money" property="building_property_money"/>	
+		<result column="building_developers" property="building_developers"/>	
+		<result column="building_repairtime" property="building_repairtime"/>	
+		<result column="building_acreage" property="building_acreage"/>	
+		<result column="building_level" property="building_level"/>	
+		<result column="building_traffic" property="building_traffic"/>	
+		<result column="building_state" property="building_state"/>	
+		<result column="building_userName" property="building_userName"/>	
+		<result column="building_time" property="building_time"/>	
+		<result column="building_sort" property="building_sort"/>	
+		<result column="SEO_title" property="SEO_title"/>	
+		<result column="SEO_describe" property="SEO_describe"/>	
+		<result column="SEO_keyword" property="SEO_keyword"/>	
+		<result column="building_abridgeName" property="building_abridgeName"/>	
+		<association property="trade_area_id" resultMap="trade_area" />
+		<association property="property_id" resultMap="property" />
+	</resultMap>
+	<resultMap type="com.model.House" id="house">
+		<id column="house_id" property="house_id"/>
+		<result column="house_name" property="house_name"/>	
+		<result column="house_money" property="house_money"/>	
+		<result column="house_type" property="house_type"/>	
+		<result column="house_mi" property="house_mi"/>	
+		<result column="house_num" property="house_num"/>	
+		<result column="house_orientation" property="house_orientation"/>	
+		<result column="house_decoration_type" property="house_decoration_type"/>	
+		<result column="house_address" property="house_address"/>	
+		<result column="house_intime" property="house_intime"/>	
+		<result column="house_linkman" property="house_linkman"/>	
+		<result column="house_phone" property="house_phone"/>	
+		<result column="house_sale_state" property="house_sale_state"/>	
+		<result column="house_ishot" property="house_ishot"/>	
+		<result column="house_style" property="house_style"/>	
+		<result column="house_sourcestyle" property="house_sourcestyle"/>	
+		<result column="house_state" property="house_state"/>	
+		<result column="house_userName" property="house_userName"/>	
+		<result column="house_time" property="house_time"/>	
+		<result column="longitude" property="longitude"/>	
+		<result column="latitude" property="latitude"/>	
+		<result column="SEO_title" property="SEO_title"/>	
+		<result column="SEO_describe" property="SEO_describe"/>	
+		<result column="SEO_keyword" property="SEO_keyword"/>	
+		<association property="building_id" resultMap="building" />
+	</resultMap>
+	<select id="mapTrade_Area" resultType="com.model.Trade_Area">
+		
+	</select>
+	<!-- 房源查询 -->
+	<select id="mapHouse" resultMap="house">
+		SELECT
+		  *
+		FROM
+		  house a
+		  LEFT JOIN building b
+		    ON a.`building_id` = b.`building_id`
+		  LEFT JOIN trade_area c
+		    ON b.`trade_area_id` = c.`trade_area_id`
+		  LEFT JOIN child_domain d
+		    ON b.`child_domain_id` = d.`child_domain_id`
+		  LEFT JOIN property e 
+		    ON b.`property_id`=e.`property_id`
+		  LEFT JOIN district f
+		    ON c.`district_id` = f.`district_id` 
+		  LEFT JOIN city g 
+		    ON f.`city_id`=g.`city_id`	
+	</select>
+</mapper>

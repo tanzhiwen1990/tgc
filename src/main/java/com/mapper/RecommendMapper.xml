@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.RecommendMapper">
+	<!-- 分页查询 -->
+	<select id="pageRecommend" resultType="com.model.Recommend">
+		select * from recommend WHERE recommend_type='房源'
+	</select>
+	<!-- 条件查询 -->
+	<select id="pageRecommend2" resultType="com.model.Recommend" parameterType="com.model.pojo.PageRecommendPojo">
+		select * from recommend WHERE 1=1
+		<if test='beginTime != ""'>
+			<![CDATA[AND recommend_time > #{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND recommend_time < #{endTime}]]>
+		</if>
+		<if test='city != ""'>
+			AND recommend_cityName = #{city}
+		</if>
+		<if test='district != ""'>
+			AND recommend_districtName = #{district}
+		</if>
+		<if test='trade_Area != ""'>
+			AND recommend_trade_areatName = #{trade_Area}
+		</if>
+		<if test='type != ""'>
+			AND recommend_type = #{type}
+		</if>
+		<if test='state != ""'>
+			AND recommend_state = #{state}
+		</if>
+	</select>
+	<update id="updateRecommendState" parameterType="com.model.Recommend">
+		update recommend set recommend_state=#{recommend_state},recommend_userName=#{recommend_userName},recommend_time=#{recommend_time} where recommend_id=#{recommend_id}
+	</update>
+	<delete id="deleteRecommend" parameterType="com.model.pojo.DeletePojo">
+		delete from recommend where recommend_id in(${ids})
+	</delete>
+	<!-- 添加 -->
+	<insert id="insertRecommend" parameterType="com.model.Recommend">
+		INSERT INTO recommend (
+		  recommended_id,
+		  recommend_cityName,
+		  recommend_districtName,
+		  recommend_trade_areatName,
+		  recommend_building_name,
+		  recommend_house_name,
+		  recommend_type,
+		  recommend_userName
+		)
+		VALUES
+		  (
+		    #{recommended_id},
+		    #{recommend_cityName},
+		    #{recommend_districtName},
+		    #{recommend_trade_areatName},
+		    #{recommend_building_name},
+		    #{recommend_house_name},
+		    #{recommend_type},
+		    #{recommend_userName}
+		  )
+	</insert>
+	<!-- 修改房源热门状态 -->
+	<update id="updateHouseishot" parameterType="com.model.House">
+		UPDATE house SET house_ishot=#{house_ishot} WHERE house_id=#{house_id}
+	</update>
+	<!-- 修改楼盘热门状态 -->
+	<update id="updateBuildingishot" parameterType="com.model.Building">
+		UPDATE building SET building_isHot=#{building_isHot} WHERE building_id=#{building_id}
+	</update>
+</mapper>

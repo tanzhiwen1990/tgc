@@ -1,0 +1,21 @@
+html,body { background:#fff; font-family: 'PingFangSC-Regular','微软雅黑','Helvetica Neue','Ubuntu', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'sans-serif';}
+.fm_page {background: #fff;}
+.fm_page .fm_sign{color: red;margin-right: .15rem;}
+.fm_page header{background: #1A1A1A;}
+.fm_page .title{color: #fff;}
+.fm_page .icon{color: #fff;font-size: .9rem;}
+.fm_page .button {border: 1px solid #fff;color: #fff; }
+.fm_page .list-block {margin: 0; font-size: .74rem;color: #1A1A1A;}
+.fm_page .list-block .item-content{padding-left: 0;}
+.fm_page .list-block .item-title.label{text-align: right;width: 25%;}
+.fm_page .list-block .item-media+.item-inner{margin-left: 0;}
+.fm_page .list-block .item-inner{padding-right: 0;padding-top: 0; padding-bottom: 0; }
+.fm_page .list-block .item-input{border-bottom: 1px solid #eee; margin-top: 0;margin-bottom: 0; }
+.fm_page .list-block li:last-child .item-input{border-bottom: 0;}
+.fm_page .list-block ul:after{background-color: #eee;}
+.fm_page .list-block input[type=text], .list-block input[type=password], .list-block input[type=email], .list-block input[type=tel], .list-block input[type=url], .list-block input[type=date], .list-block input[type=datetime-local], .list-block input[type=time], .list-block input[type=number], .list-block input[type=search], .list-block select, .list-block textarea{font-size: .74rem;}
+.fm_page .list-block .item-inner:after{background-color: #fff;}
+.fm_page .list-block textarea{height: 2.15rem;}
+@media screen and (max-width: 335px){
+    .fm_page .list-block .item-title.label{width: 27%;}
+}

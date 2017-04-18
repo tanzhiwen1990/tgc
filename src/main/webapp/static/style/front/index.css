@@ -1,0 +1,145 @@
+html,body { background:#fff; font-family: 'PingFangSC-Regular','微软雅黑','Helvetica Neue','Ubuntu', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'sans-serif';}
+
+
+
+/*颜色设置*/
+.black { color:#3A3A3A}
+.gray { color:#999}
+.white { color:#fff}
+.org { color:#F90}
+
+/*字号设置*/
+.big { font-size:1rem}
+.mid { font-size:0.8rem}
+.sml { font-size:0.7rem}
+.mini { font-size:0.6rem}
+.bod { font-weight:500}
+
+.more { float:right}
+/*图标样式*/
+
+
+/*标题一搜索样式*/
+.cz_topbar_sc { background:none; z-index:15; border:0px; position:absolute; line-height:2.2rem; padding:0 0.65rem}
+.cz_topbar_sc:after { background:none}
+.cz_are {}
+
+/*banner*/
+.cz_card { width:100%; height:auto; margin:0px; box-shadow:none}
+.cz_card .card-content .card-content-inner { padding:0px; width:100%}
+.cz_card .card-content .card-content-inner img { width:100%; height:auto}
+
+/*卡片*/
+.cz_cont { padding-bottom:2rem}
+
+.content-block-title { padding-top:1.2rem; margin:0}
+.cz_txt_line { height:0.1rem; width:2.45rem; position:relative; top:0.35rem;background:#eee; overflow:hidden; clear:both; margin:0px auto}
+
+.cz_cont .demo-card-header-pic { box-shadow:none}
+.cz_cont .content-block-title { text-align:center}
+.cz_cont .card-content-inner p { font-size:0.8rem; letter-spacing:0px; line-height:0.6rem}
+.cz_cont .card-content-inner p span { font-size:0.65rem; line-height:0.5rem; letter-spacing:0px;padding-top: .2rem;}
+.cz_cont .cz_room .card-content .card-content-inner { padding:0.8rem 0}
+.cz_room { margin:1.2rem 0.63rem;}
+
+/*工具栏*/
+.cz_bico { height:2.45rem; background:#fff}
+.cz_bico a span.ico { width:1.05rem; height:1.05rem; top:0.4rem}
+.cz_bico img.zc_bo { width:1.25rem; height:1.25rem}
+.cz_bico a span.tab-label { font-size:0.5rem !important; top:0 !important}
+
+.cz_absolute_right{
+    position: absolute;
+    right: 0px;
+}
+/*覆盖样式*/
+
+
+/*选项卡*/
+.cz-tab { background:#1a1a1a; z-index:15; height:2.17rem}
+.cz_tab_nav { width:10rem; margin:0px auto; border:1px solid #fff; border-radius:5px; overflow:hidden; height:1.5rem; margin-top:0.3rem; line-height:1.5rem}
+.buttons-tab .button { color:#fff }
+.cz_tab_nav a.button { float:left; width:50%;height:1.5rem; line-height:1.5rem; color:#fff}
+.cz_tab_nav a.button.active { color:#3a3a3a; background:#fff}
+
+.bar_shop { height:auto; padding:0}
+.bar_shop .button { top:0; font-weight:0;}
+
+.cz-search { position:absolute; right:0.5rem; top:0.3rem; z-index:15; display:inline}
+.cz-search img { width:1.5rem}
+
+
+/*商户list*/
+.shop_list .list-block.media-list .item-media img { width:5rem!important;height:5rem!important;border-radius: 0px!important;}
+.shop_pic { width:5rem; height:5rem; overflow:hidden; padding:0}
+.shop_list { margin:0px; border-radius:0px; box-shadow:none; border-bottom:1px solid #eee}
+.shop_list .item-subtitle img { width:1.2rem; margin-right:-0.3rem; position:relative; left:-0.2rem; vertical-align:middle}
+.shop_list .item-subtitle { height:1.3rem}
+
+/*.shop_list .list-block.media-list .item-media img { width:5rem}*/
+/*.shop_pic { width:5rem; height:5rem; overflow:hidden; padding:0}*/
+/*.shop_list { margin:0px; border-radius:0px; box-shadow:none; border-bottom:1px solid #eee}*/
+/*.shop_list .item-subtitle img { width:1.2rem; margin-right:-0.3rem; position:relative; left:-0.2rem; vertical-align:middle}*/
+/*.shop_list .item-subtitle { height:1.3rem}*/
+
+/*间隔*/
+.cz_topb { width:100%; height:2.17rem; clear:both}
+
+/*商户筛选*/
+.list_scr { height:2.17rem;width:100%; background:#1a1a1a; z-index:15; position:relative; clear:both}
+.list_scr ul li { float:left; width:33%; height:2.17rem; list-style:none; text-align:center; color:#fff; line-height:2.17rem; display:block}
+.list_scr ul { padding:0px; margin:0px}
+.list_scr ul li img { width:0.3rem; margin-left:0.5rem; position:relative; top:-0.1rem}
+
+.buttons-tab:after { height:0px}
+
+/*筛选弹出层*/
+.scr_nav { width:100%; height:auto; background:#fff; position:absolute; top:2.17rem; left:0rem; font-size:0.7rem}
+.scr_nav_t { background:#eee}
+.scr_nav_t ul.src_bcls { width:35%; height:100%;  float:left}
+.scr_nav_t ul.src_mcls { width:65%; float:left}
+.scr_nav_t ul.src_mcls li { background:#fff }
+.scr_nav ul li { height:2rem; line-height:2rem; width:100%; color:#3a3a3a; display:block}
+.scr_nav ul li.light { background:#555; margin:5% 10%; width:80%; height:1.6rem; line-height:1.6rem; color:#fff; border-radius:5px}
+.scr_nav_bg { background:#000; z-index:1; width:100%; height:100%; position:absolute; top:2.17rem; left:0rem; opacity:0.2; overflow:hidden}
+
+/*清真寺list*/
+
+.content-block { margin:0; padding:0}
+.shop_mos { margin:0px; border-radius:0px; box-shadow:none; border-bottom:1px solid #eee}
+.mos_img { width:100%; height:9rem; overflow:hidden }
+.mos_img img { width:100%; height:auto}
+.content-mos p { margin:0.2rem 0}
+.mos_inner { margin-top:0; padding-top:0}
+.mos_inner p img { width:1.2rem; margin-right:-0.3rem; position:relative; left:-0.2rem; vertical-align:middle}
+.mos_inner div img { width:1.2rem; margin-right:-0.3rem; position:relative; left:-0.2rem; vertical-align:middle}
+
+/*搜索栏*/
+.cz_schbar:after{ height:0px}
+.cz_schbar { height:2.17rem}
+.cz_schbar .searchbar { background:#fff;}
+.cz_schbar .search-input input { background:#eaeaea; height:1.6rem; line-height:1.6rem; font-size:0.7rem}
+.cz_schbar .search-input .icon-search { color: #5f646e;}
+.cz_schbar .searchbar .searchbar-cancel { height:1.6rem; line-height:1.6rem;}
+
+/*历史搜索*/
+.cz_schbar_list { height:auto; width:100%; position:absolute; z-index:10; top:2rem; padding:0.5rem}
+.cz_schbar_list ul { margin:0; padding:0; clear:both; width:100%}
+.cz_schbar_list ul.tit li { height:2.3rem; line-height:2.3rem; text-align:left; font-size:0.8rem; color:#3a3a3a; text-align:left; width:100%}
+.cz_schbar_list ul.tit li img { width:1.2rem; position:relative; top:0.6rem; right:0.2rem}
+.cz_schbar_list ul.hist li  { display:inline-block; font-size:0.7rem; padding:0.3rem 0.8rem; margin-right:0.2rem;  background:#eaeaea; border-radius:3px;margin-bottom: .4rem;}
+
+.child-page header {
+    background: #1A1A1A;
+}
+
+.child-page .title {
+    color: #fff;
+}
+.child-page .bar .icon {
+    color: #fff;
+}
+
+.child-page .list-block{
+    margin:0;
+}

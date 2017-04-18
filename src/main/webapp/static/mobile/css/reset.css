@@ -1,0 +1,30 @@
+/* reset */
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea,span{
+	margin:0;
+	padding:0;
+	font-family: "微软雅黑",Helvetica, Arial, "Hiragino Sans GB", sans-serif
+}
+a,input{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+*:focus{
+    outline: none;
+}
+ol,ul,li{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+}
+input{
+    border: 0;
+    outline: none;
+}
+img{
+	border:none;
+}
+input[type=button],input[type=submit]{
+    -webkit-appearance: none;
+}
+
+/* END reset */

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.Find_HouseMapper">
+	<!-- 分页查询 -->
+	<select id="pageFind_House" resultType="com.model.Find_House">
+		select
+		  `find_house_id`,
+		  `find_house_company_name`,
+		  `find_house_type`,
+		  `find_house_city`,
+		  `find_house_district`,
+		  `find_house_trade_area`,
+		  `find_house_acreage`,
+		  `find_house_price`,
+		  `find_house_name`,
+		  `find_house_phone`,
+		  `find_house_state`,
+		  `find_house_time`
+		from
+		  find_house
+	</select>
+	<!-- 条件查询 -->
+	<select id="pageFind_House2" resultType="com.model.Find_House" parameterType="com.model.pojo.PagePojo">
+		SELECT
+		  `find_house_id`,
+		  `find_house_company_name`,
+		  `find_house_type`,
+		  `find_house_city`,
+		  `find_house_district`,
+		  `find_house_trade_area`,
+		  `find_house_acreage`,
+		  `find_house_price`,
+		  `find_house_name`,
+		  `find_house_phone`,
+		  `find_house_state`,
+		  `find_house_time`
+		FROM
+		  find_house
+		WHERE 1=1
+		<if test='type != ""'>
+			AND find_house_type = #{type}
+		</if>
+		<if test='name != ""'>
+			AND find_house_company_name LIKE '%${name}%'
+		</if>
+		<if test='beginTime != ""'>
+			<![CDATA[AND find_house_time > #{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND find_house_time < #{endTime}]]>
+		</if>
+	</select>
+	
+	<insert id="save" parameterType="com.model.Find_House">
+	   INSERT INTO  find_house (
+		 `find_house_company_name`,
+		  `find_house_type`,
+		  `find_house_city`,
+		  `find_house_district`,
+		  `find_house_trade_area`,
+		  `find_house_acreage`,
+		  `find_house_price`,
+		  `find_house_name`,
+		  `find_house_phone`,
+		  `find_house_state`,
+		  `find_house_time`
+		)
+		VALUES
+		  (
+		    #{find_house_company_name},
+		    #{find_house_type},
+		    #{find_house_city},
+		    #{find_house_district},
+		    #{find_house_trade_area},
+		    #{find_house_acreage},
+		    #{find_house_price},
+		    #{find_house_name},
+		    #{find_house_phone},
+		    #{find_house_state},
+		    #{find_house_time}
+		  )
+	</insert>
+</mapper>

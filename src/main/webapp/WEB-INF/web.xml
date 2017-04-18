@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Tests</display-name>
+		  <welcome-file-list>
+		    <welcome-file>goToAdmin.jsp</welcome-file>
+		  </welcome-file-list>
+		  <listener>
+		    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+		  </listener>
+		  <listener>
+		    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		  </listener>
+		  <context-param>
+		    <param-name>contextConfigLocation</param-name>
+		    <param-value>classpath:Spring/applicationContext.xml</param-value>
+		  </context-param>
+		  <servlet>
+		    <servlet-name>SpringMVC</servlet-name>
+		    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		    <init-param>
+		      <param-name>contextConfigLocation</param-name>
+		      <param-value>classpath:Spring/spring-MVC.xml</param-value>
+		    </init-param>
+		    <load-on-startup>1</load-on-startup>
+		    <multipart-config>
+		      <max-file-size>5242880</max-file-size>
+		      <max-request-size>20971520</max-request-size>
+		      <file-size-threshold>0</file-size-threshold>
+		    </multipart-config>
+		  </servlet>
+		  <servlet-mapping>
+		    <servlet-name>SpringMVC</servlet-name>
+		    <url-pattern>/</url-pattern>
+		  </servlet-mapping>
+		  <filter>
+		    <filter-name>CharacterEncodingFilter</filter-name>
+		    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		    <init-param>
+		      <param-name>encoding</param-name>
+		      <param-value>utf-8</param-value>
+		    </init-param>
+		  </filter>
+		  <filter-mapping>
+		    <filter-name>CharacterEncodingFilter</filter-name>
+		    <url-pattern>/*</url-pattern>
+		  </filter-mapping>
+		  <session-config>
+		    <session-timeout>30</session-timeout>
+		  </session-config>
+			<error-page>  
+			    <error-code>403</error-code>  
+			    <location>/errorPage/403.html</location>  
+			</error-page>  
+			<error-page>  
+			    <error-code>404</error-code>  
+			    <location>/errorPage/404.html</location>  
+			</error-page>  
+			<!-- 仅仅在调试的时候注视掉,在正式部署的时候不能注释 -->  
+			<!-- 这样配置也是可以的，表示发生500错误的时候，转到500.jsp页面处理。 -->  
+			<error-page>   
+			    <error-code>500</error-code>   
+			    <location>/errorPage/500.html</location>   
+			</error-page>   
+			  
+			<!-- 这样的配置表示如果jsp页面或者servlet发生java.lang.Exception类型（当然包含子类）的异常就会转到500.jsp页面处理。 -->  
+			<error-page>   
+			    <exception-type>java.lang.Exception</exception-type>   
+			    <location>/errorPage/500.jsp</location>   
+			</error-page>   
+			  
+			<error-page>   
+			    <exception-type>java.lang.Throwable</exception-type>   
+			    <location>/errorPage/500.jsp</location>   
+			</error-page>  
+</web-app>

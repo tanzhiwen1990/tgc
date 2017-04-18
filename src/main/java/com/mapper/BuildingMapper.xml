@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.BuildingMapper">
+	<resultMap type="com.model.Child_Domain" id="child_Domain">
+		<id column="child_domain_id" property="child_domain_id"/>
+		<result column="child_domain_name" property="child_domain_name"/>
+	</resultMap>
+	<resultMap type="com.model.Property" id="property">
+		<id column="property_id" property="id"/>
+		<result column="property_type" property="type"/>
+		<result column="property_describe" property="description"/>
+		<result column="property_state" property="username"/>
+		<result column="property_userName" property="state"/>
+		<result column="property_time" property="time"/>
+	</resultMap>
+	<resultMap type="com.model.City" id="city">
+		<id column="city_id" property="city_id"/>
+		<result column="city_name" property="city_name"/>
+	</resultMap>
+	<resultMap type="com.model.District" id="district">
+		<id column="district_id" property="district_id"/>
+		<result column="district_name" property="district_name"/>
+		<association property="city_id" resultMap="city"/>
+	</resultMap>
+	<resultMap type="com.model.Trade_Area" id="trade_area">
+		<id column="trade_area_id" property="trade_area_id"/>
+		<result column="trade_area_name" property="trade_area_name"/>
+		<result column="trade_area_text" property="trade_area_text"/>
+		<result column="trade_area_ishot" property="trade_area_ishot"/>
+		<result column="trade_area_sort" property="trade_area_sort"/>
+		<result column="trade_area_state" property="trade_area_state"/>
+		<result column="trade_area_username" property="trade_area_username"/>
+		<result column="trade_area_time" property="trade_area_time"/>
+		<result column="trade_area_img" property="trade_area_img"/>
+		<association property="district_id" resultMap="district" javaType="com.model.District">
+		</association>
+	</resultMap>
+	<resultMap type="com.model.Building" id="building">
+		<id column="building_id" property="building_id"/>
+		<result column="building_name" property="building_name"/>	
+		<result column="building_addr" property="building_addr"/>	
+		<result column="building_rent" property="building_rent"/>	
+		<result column="building_rent_unit" property="building_rent_unit"/>
+		<result column="building_price" property="building_price"/>
+		<result column="building_price_unit" property="building_price_unit"/>
+		<result column="building_year" property="building_year"/>	
+		<result column="building_car" property="building_car"/>	
+		<result column="building_car_money" property="building_car_money"/>	
+		<result column="building_floor" property="building_floor"/>	
+		<result column="building_houseNum" property="building_houseNum"/>	
+		<result column="building_property" property="building_property"/>	
+		<result column="building_property_money" property="building_property_money"/>	
+		<result column="building_property_unit" property="building_property_unit"/>
+		<result column="building_developers" property="building_developers"/>	
+		<result column="building_repairtime" property="building_repairtime"/>	
+		<result column="building_acreage" property="building_acreage"/>	
+		<result column="building_level" property="building_level"/>	
+		<result column="building_traffic" property="building_traffic"/>	
+		<result column="building_isHot" property="building_isHot"/>	
+		<result column="building_state" property="building_state"/>	
+		<result column="building_userName" property="building_userName"/>	
+		<result column="building_time" property="building_time"/>	
+		<result column="building_sort" property="building_sort"/>
+		<result column="longitude" property="longitude"/>	
+		<result column="latitude" property="latitude"/>		
+		<result column="SEO_title" property="SEO_title"/>	
+		<result column="SEO_describe" property="SEO_describe"/>	
+		<result column="SEO_keyword" property="SEO_keyword"/>	
+		<result column="building_abridgeName" property="building_abridgeName"/>	
+		<association property="trade_area_id" resultMap="trade_area" />
+		<association property="property_id" resultMap="property" />
+	</resultMap>
+	<!-- 分页查询 -->
+	<select id="pageBuilding" resultMap="building">
+		SELECT
+		  *
+		FROM
+		  building a
+		  LEFT JOIN trade_area b
+		    ON a.`trade_area_id` = b.`trade_area_id`
+		  LEFT JOIN child_domain c
+		    ON a.`child_domain_id` = c.`child_domain_id`
+		  LEFT JOIN property d 
+		    ON a.`property_id`=d.`property_id`
+		  LEFT JOIN district e
+    		ON b.`district_id` = e.`district_id` 
+  		  LEFT JOIN city f 
+    		ON e.`city_id`=f.`city_id`
+    	 Order by building_time DESC
+	</select>
+	<!-- 条件查询 -->
+	<select id="pageBuilding2" resultMap="building" parameterType="com.model.pojo.PagePojo">
+		SELECT
+		  *
+		FROM
+		  building a
+		  LEFT JOIN trade_area b
+		    ON a.`trade_area_id` = b.`trade_area_id`
+		  LEFT JOIN child_domain c
+		    ON a.`child_domain_id` = c.`child_domain_id`
+		  LEFT JOIN property d 
+		    ON a.`property_id`=d.`property_id`
+		  LEFT JOIN district e
+    		ON b.`district_id` = e.`district_id` 
+  		  LEFT JOIN city f 
+    		ON e.`city_id`=f.`city_id` WHERE 1=1
+		<if test='name != ""'>
+			AND a.building_name LIKE '%${name}%' 
+			OR a.building_addr LIKE '%${name}%'
+			OR a.building_id LIKE '%${name}%'
+		</if>
+		Order by building_time DESC
+	</select>
+	<delete id="deleteBuilding" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM building WHERE building_id in(${ids})
+	</delete>
+	<!-- 上线下线 -->
+	<update id="updateBuildingState" parameterType="com.model.Building">
+		UPDATE
+		  building
+		SET
+		  building_state = #{building_state},
+		  building_userName = #{building_userName},
+		  building_time = #{building_time}
+		WHERE building_id =#{building_id}
+	</update>
+	<!-- 添加楼盘 -->
+	<insert id="insertBuilding" parameterType="com.model.pojo.BuildingPojo">
+		<selectKey keyProperty="building_id" resultType="int">
+			select LAST_INSERT_ID()
+		</selectKey>
+		INSERT INTO building (
+		  trade_area_id,
+		  property_id,
+		  building_name,
+		  building_addr,
+		  building_rent,
+		  building_rent_unit,
+		  building_year,
+		  building_car,
+		  building_car_money,
+		  building_property,
+		  building_property_money,
+		  building_property_unit,
+		  building_developers,
+		  building_repairtime,
+		  building_acreage, 
+		  building_level,
+		  building_traffic, 
+		  building_userName, 
+		  building_time,
+		  building_sort,
+		  building_price,
+		  building_price_unit,
+		  longitude,
+		  latitude,
+		  SEO_describe
+		)
+		VALUES
+		(
+		  #{trade_area_id},
+		  #{property_id},
+		  #{building_name},
+		  #{building_addr},
+		  #{building_rent},
+		  #{building_rent_unit},
+		  #{building_year},
+		  #{building_car},
+		  #{building_car_money},
+		  #{building_property},
+		  #{building_property_money},
+		  #{building_property_unit} ,
+		  #{building_developers},
+		  #{building_repairtime},
+		  #{building_acreage},
+		  #{building_level},
+		  #{building_traffic},
+		  #{building_userName},
+		  #{building_time},
+		  #{building_sort},
+		  #{building_price},
+		  #{building_price_unit},
+		  #{longitude},
+		  #{latitude},
+		  #{SEO_describe}
+		)
+	</insert>
+	<!-- 修改楼盘 -->
+	<update id="updateBuilding" parameterType="com.model.pojo.BuildingPojo">
+		UPDATE
+		  building
+		SET
+		  trade_area_id=#{trade_area_id},
+		  property_id=#{property_id},
+		  building_name=#{building_name},
+		  building_addr=#{building_addr},
+		  building_rent=#{building_rent},
+		  building_rent_unit=#{building_rent_unit},
+		  building_year=#{building_year},
+		  building_car=#{building_car},
+		  building_car_money=#{building_car_money},
+		  building_property=#{building_property},
+		  building_property_money=#{building_property_money},
+		  building_property_unit=#{building_property_unit},
+		  building_developers=#{building_developers},
+		  building_repairtime=#{building_repairtime},
+		  building_acreage=#{building_acreage}, 
+		  building_level=#{building_level},
+		  building_traffic=#{building_traffic}, 
+		  building_userName=#{building_userName}, 
+		  building_time=#{building_time},
+		  building_sort=#{building_sort},
+		  building_price=#{building_price},
+		  building_price_unit=#{building_price_unit},
+		  longitude=#{longitude},
+		  latitude=#{latitude},
+		  SEO_describe=#{SEO_describe}
+		WHERE building_id =#{building_id}
+	</update>
+	<!-- 查询单个 -->
+	<select id="findOne" resultMap="building" parameterType="com.model.Building">
+		SELECT
+		  *
+		FROM
+		  building a
+		  LEFT JOIN trade_area b
+		    ON a.`trade_area_id` = b.`trade_area_id`
+		  LEFT JOIN child_domain c
+		    ON a.`child_domain_id` = c.`child_domain_id`
+		  LEFT JOIN property d 
+		    ON a.`property_id`=d.`property_id`
+		  LEFT JOIN district e
+    		ON b.`district_id` = e.`district_id` 
+  		  LEFT JOIN city f 
+    		ON e.`city_id`=f.`city_id` WHERE a.building_id=#{building_id}
+	</select>
+	<!-- 添加图片 -->
+	<insert id="addBuilding_Picture" parameterType="com.model.pojo.Building_PicturePojo">
+		INSERT INTO building_picture (
+		  building_id,
+		  building_picture_addr
+		)
+		VALUES
+		  (#{building_id}, #{building_picture_addr})
+	</insert>
+	
+	 <select id="queryByHot"  resultType="java.util.Map" >
+	    SELECT * FROM building a
+		  LEFT JOIN trade_area b
+		    ON a.`trade_area_id` = b.`trade_area_id`
+		  LEFT JOIN child_domain c
+		    ON a.`child_domain_id` = c.`child_domain_id`
+		  LEFT JOIN property d 
+		    ON a.`property_id`=d.`property_id`
+		  LEFT JOIN district e
+    		ON b.`district_id` = e.`district_id` 
+  		  LEFT JOIN city f 
+    		ON e.`city_id`=f.`city_id`
+    		 LEFT JOIN building_picture g
+		ON g.building_id=a.`building_id` 
+		WHERE
+			a.building_state = '已上线'
+				 AND a.building_isHot = '是'
+		 GROUP BY a.`building_id` 
+		ORDER BY a.building_time  
+	  
+	 </select>
+	 
+	  <select id="queryBuilding"  resultType="java.util.Map" >
+	    SELECT
+		  a.building_id,
+			a.trade_area_id,
+			a.child_domain_id,
+			a.property_id,
+			building_name,
+			building_addr,
+			building_rent,
+			building_rent_unit,
+			building_price,
+			building_year,
+			building_car,
+			building_car_money,
+			building_floor,
+			building_houseNum,
+			building_property,
+			building_property_money,
+			building_developers,
+			building_repairtime,
+			building_acreage,
+			building_level,
+			building_traffic,
+			building_img,
+			building_isHot,
+			building_state,
+			building_userName,
+			building_time,
+			building_sort,
+			a.longitude,
+			a.latitude,
+			SEO_title,
+			SEO_describe,
+			SEO_keyword,
+			building_abridgeName,
+			trade_area_name,
+			trade_area_text,
+			trade_area_ishot,
+			trade_area_sort,
+			trade_area_state,
+			trade_area_username,
+			trade_area_time,
+			trade_area_img,
+			child_domain_name,
+			property_type,
+			property_describe,
+			property_state,
+			property_userName,
+			property_time,
+			b.district_id,
+			district_name,
+			e.city_id,
+			city_name,
+			building_picture_id,
+			building_picture_addr,
+			building_picture_type
+		FROM
+		  building a
+		  LEFT JOIN trade_area b
+		    ON a.`trade_area_id` = b.`trade_area_id`
+		  LEFT JOIN child_domain c
+		    ON a.`child_domain_id` = c.`child_domain_id`
+		  LEFT JOIN property d 
+		    ON a.`property_id`=d.`property_id`
+		  LEFT JOIN district e
+    		ON b.`district_id` = e.`district_id` 
+  		  LEFT JOIN city f 
+    		ON e.`city_id`=f.`city_id`
+       LEFT JOIN building_picture g
+       ON a.building_id=g.building_id
+    	 WHERE
+			a.building_state = '已上线'
+		  <if test="keyword!='' and keyword!=null">
+			  AND a.building_name LIKE CONCAT('%', #{keyword}, '%')
+		  </if>
+		  <if test="districtId != null and districtId != ''">
+			  AND b.`district_id`= #{districtId}
+		  </if>
+		  <if test="domainId != null and domainId != ''">
+			  and b.trade_area_id= #{domainId}
+		  </if>
+     GROUP BY 
+     a.building_id
+		 ORDER BY
+			a.building_time
+	 </select>
+	 
+	  <select id="get"  parameterType="int"  resultType="java.util.Map">
+	    SELECT
+	    *
+		FROM
+			building b
+		LEFT JOIN trade_area t ON b.trade_area_id = t.trade_area_id
+		LEFT JOIN district d ON t.district_id = d.district_id
+		LEFT JOIN building_picture p  ON b.building_id=p.building_id
+		WHERE b.building_id=#{id} 
+		 GROUP BY p.building_id
+		 ORDER BY b.building_time
+	 </select>
+	 
+	  <select id="getPicById"  parameterType="int"  resultType="java.util.Map">
+	   SELECT * FROM  building_picture where building_id=#{id}
+	 </select>
+	 
+	 
+	 
+	 <select id="sortByCon"  parameterType="string"  resultMap="building" >
+	    SELECT
+		  *
+		FROM
+		  building a
+		  LEFT JOIN trade_area b
+		    ON a.`trade_area_id` = b.`trade_area_id`
+		  LEFT JOIN child_domain c
+		    ON a.`child_domain_id` = c.`child_domain_id`
+		  LEFT JOIN property d 
+		    ON a.`property_id`=d.`property_id`
+		  LEFT JOIN district e
+    		ON b.`district_id` = e.`district_id` 
+  		  LEFT JOIN city f 
+    		ON e.`city_id`=f.`city_id`
+    	 WHERE
+			a.building_state = '已上线'
+		 AND a.building_isHot = '是'
+		 ORDER BY
+			#{con};
+	  
+	 </select>
+	 <!-- 图片查询 -->
+	 <select id="queryBuildingPicture" parameterType="int" resultType="com.model.Building_Picture">
+	 	SELECT building_picture_id,building_id,building_picture_addr,building_picture_type FROM building_picture WHERE building_id=#{0}
+	 </select>
+	 
+	 <delete id="deletePicture" parameterType="com.model.pojo.DeletePojo">
+		delete from building_picture where building_picture_id in(${ids})
+	 </delete>
+	 
+	 <update id="updateBuildingHot">
+	   update building set building_isHot=#{hot} where building_id in(${ids})
+	</update>
+</mapper>

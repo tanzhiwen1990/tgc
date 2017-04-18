@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.Trade_AreaMapper">
+	<!-- 分页查询 -->
+	<select id="pageTrade_Area" resultType="com.model.Trade_Area">
+		select
+		  a.trade_area_id,
+		  a.`district_id`,
+		  a.trade_area_name,
+		  a.trade_area_text,
+		  a.trade_area_ishot,
+		  a.trade_area_sort,
+		  a.trade_area_state,
+		  a.trade_area_username,
+		  a.trade_area_time,
+		  a.trade_area_img,
+		  b.`city_id`,
+		  b.`district_id`,
+		  b.`district_name`,
+		  c.`city_id`,
+		  c.`city_name`
+		from
+		  trade_area a
+		  left join district b
+		    on a.`district_id` = b.`district_id` 
+		  left join city c 
+		  	on b.`city_id`=c.`city_id`
+		  Order by trade_area_time DESC
+		  	
+	</select>
+	<!-- 条件查询 -->
+	<select id="pageTrade_Area2" resultType="com.model.Trade_Area" parameterType="com.model.pojo.PageTrade_AreaPojo">
+		select
+		  a.trade_area_id,
+		  a.`district_id`,
+		  a.trade_area_name,
+		  a.trade_area_text,
+		  a.trade_area_ishot,
+		  a.trade_area_sort,
+		  a.trade_area_state,
+		  a.trade_area_username,
+		  a.trade_area_time,
+		  a.trade_area_img,
+		  b.`city_id`,
+		  b.`district_id`,
+		  b.`district_name`,
+		  c.`city_id`,
+		  c.`city_name`
+		from
+		  trade_area a
+		  left join district b
+		    on a.`district_id` = b.`district_id` 
+		  left join city c 
+		  	on b.`city_id`=c.`city_id`
+		WHERE 1=1
+		<if test='city != ""'>
+			AND c.`city_id` = #{city}
+		</if>
+		<if test='district != ""'>
+			AND a.`district_id` = #{district}
+		</if>
+		<if test='name != ""'>
+			AND trade_area_name LIKE '%${name}%'
+		</if>
+		Order by trade_area_time DESC
+	</select>
+	
+	<!-- 删除单个或者多个 -->
+	<delete id="deleteTrade_Area" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM trade_area WHERE trade_area_id in(${ids})
+	</delete>
+	<!-- 录入数据  -->
+	<insert id="insertTrade_Area" parameterType="com.model.Trade_Area">
+		INSERT INTO trade_area (
+		  district_id,
+		  trade_area_name,
+		  trade_area_text,
+		  trade_area_sort,
+		  trade_area_ishot,
+		  trade_area_username,
+		  trade_area_img,
+		  longitude,
+		  latitude,
+		  trade_area_addr,
+		  trade_area_img_small
+		)
+		VALUES
+		  (
+		    #{district_id.district_id},
+		    #{trade_area_name},
+		    #{trade_area_text},
+		    #{trade_area_sort},
+		    #{trade_area_ishot},
+		    #{trade_area_username},
+		    #{trade_area_img},
+		    #{longitude},
+		    #{latitude},
+		    #{trade_area_addr},
+		    #{trade_area_img_small}
+		  )
+	</insert>
+	<!-- 修改数据 -->
+	<update id="updateTrade_Area" parameterType="com.model.Trade_Area">
+		update
+		  trade_area
+		set
+		  district_id = #{district_id.district_id},
+		  trade_area_name = #{trade_area_name},
+		  trade_area_text = #{trade_area_text},
+		  trade_area_ishot = #{trade_area_ishot},
+		  trade_area_sort = #{trade_area_sort},
+		  trade_area_state = #{trade_area_state},
+		  trade_area_username = #{trade_area_username},
+		  trade_area_time = #{trade_area_time},
+		  trade_area_img = #{trade_area_img},
+		  longitude = #{longitude},
+		  latitude = #{latitude},
+		  trade_area_addr=#{trade_area_addr},
+		  trade_area_img_small=#{trade_area_img_small}
+		where trade_area_id = #{trade_area_id}
+	</update>
+	<!-- 商圈上线下线 -->
+	<update id="updateTrade_AreaState" parameterType="com.model.Trade_Area">
+		update
+		  trade_area
+		set
+		  trade_area_state = #{trade_area_state},
+		  trade_area_username = #{trade_area_username},
+		  trade_area_time = #{trade_area_time}
+		where trade_area_id = #{trade_area_id}
+	</update>
+	<resultMap type="com.model.City" id="city">
+		<id column="city_id" property="city_id"/>
+		<result column="city_name" property="city_name"/>
+	</resultMap>
+	<resultMap type="com.model.District" id="district">
+		<id column="district_id" property="district_id"/>
+		<result column="district_name" property="district_name"/>
+		<association property="city_id" resultMap="city"/>
+	</resultMap>
+	<resultMap type="com.model.Trade_Area" id="Area">
+		<id column="trade_area_id" property="trade_area_id"/>
+		<result column="trade_area_name" property="trade_area_name"/>
+		<result column="trade_area_text" property="trade_area_text"/>
+		<result column="trade_area_ishot" property="trade_area_ishot"/>
+		<result column="trade_area_sort" property="trade_area_sort"/>
+		<result column="trade_area_state" property="trade_area_state"/>
+		<result column="trade_area_addr" property="trade_area_addr"/>
+		<result column="longitude" property="longitude"/>
+		<result column="latitude" property="latitude"/>
+		<result column="trade_area_username" property="trade_area_username"/>
+		<result column="trade_area_time" property="trade_area_time"/>
+		<result column="trade_area_img" property="trade_area_img"/>
+		<result column="trade_area_img_small" property="trade_area_img_small"/>
+		<association property="district_id" resultMap="district" javaType="com.model.District">
+		</association>
+	</resultMap>
+	<!-- 查询单个 -->
+	<select id="chaOneTrade_Area" resultMap="Area">
+		select
+		  a.trade_area_id,
+		  a.`district_id`,
+		  a.trade_area_name,
+		  a.trade_area_text,
+		  a.trade_area_ishot,
+		  a.trade_area_sort,
+		  a.trade_area_state,
+		  a.trade_area_username,
+		  a.trade_area_time,
+		  a.trade_area_img,
+		  a.trade_area_img_small,
+		  a.longitude,
+		  a.latitude,
+		  b.`city_id`,
+		  b.`district_id`,
+		  b.`district_name`,
+		  c.`city_id`,
+		  c.`city_name`
+		from
+		  trade_area a
+		  left join district b
+		    on a.`district_id` = b.`district_id` 
+		  left join city c 
+		  	on b.`city_id`=c.`city_id` WHERE a.trade_area_id = #{0}
+	</select>
+	
+	
+	<select id="queryByHot" resultMap="Area">
+		select * FROM trade_area where trade_area_ishot='是' AND trade_area_state='已上线' ORDER BY trade_area_time
+	</select>
+	<select id="FindMapTrade_Area" resultMap="Area">
+		select * FROM trade_area where trade_area_state='已上线'
+	</select>
+</mapper>

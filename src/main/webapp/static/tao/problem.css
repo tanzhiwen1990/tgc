@@ -1,0 +1,78 @@
+.location{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	color: #999;
+}
+.location a{
+	color: #999;
+	margin: 0 8px;
+}
+.location a.active,.location a:hover{
+	color: #185dc6;
+}
+
+.problem-tittle{
+	font-size: 36px;
+	height: 96px;
+	line-height: 96px;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+
+.problem-content{
+	width: 865px;
+	float: left;
+	margin-left: 190px;
+	padding-bottom: 140px;
+	min-height: 360px;
+}
+
+.problem-item h2,
+.problem-item p {
+	font-size: 14px;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	border-bottom: 1px solid #d0d0d0;
+	margin: 0;
+}
+.problem-item p{
+	color: #969696;
+}
+.problem-item h2 a {
+	color: #2b2b2b;
+}
+
+.problem-item h2 a:hover,.problem-item h2.active a {
+	color: red;
+}
+
+
+.problem-item h2 i,
+.problem-item p i {
+	height: 22px;
+	width: 22px;
+	color: #fff;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 22px;
+	margin-right: 6px;
+	margin-left: 3px;
+	float: left;
+}
+
+.problem-item h2 i {
+	background-color: #1272b3;
+}
+
+.problem-item p i {
+	background-color: #7fca14;
+}
+.problem-item p span{
+	float: left;
+	width: 830px;
+}
+.problem-item p {
+	display: none;
+}

@@ -1,0 +1,93 @@
+/* reset */
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea,span{
+	margin:0;
+	padding:0;
+    font-family:'微软雅黑';
+    font-family: "Microsoft YaHei" ! important;
+	/*font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", 微软雅黑, "Segoe UI", Tahoma, 宋体b8b体, SimSun, sans-serif;*/
+	
+}
+h1,h2,h3,h4,h5,h6,b{
+	font-weight: normal;
+}
+i{
+	font-style: normal;
+}
+a,input{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+*:focus{
+    outline: none;
+}
+ol,ul,li{
+	list-style:none;
+}
+a{
+	color: #333;
+    text-decoration: none;
+    outline: none;
+        -webkit-transition: color .3s,background-color .3s,border-color .3s;
+    -moz-transition: color .3s,background-color .3s,border-color .3s;
+    -ms-transition: color .3s,background-color .3s,border-color .3s;
+    -o-transition: color .3s,background-color .3s,border-color .3s;
+    transition: color .3s,background-color .3s,border-color .3s;
+}
+em{
+	font-style: normal;
+}
+input{
+    border: 0;
+    outline: none;
+}
+img, li {
+    vertical-align: top;
+}
+img{
+	border:none;
+	
+}
+
+input[type=button],input[type=submit]{
+    -webkit-appearance: none;
+}
+
+/* END reset */
+
+.clearfix:after {
+content: "." ;
+display: block ;
+height: 0 ;
+clear: both ;
+visibility: hidden ;
+}
+.clearfix{ zoom:1 }
+
+
+.m-content-warp{
+	width: 80%;
+}
+.m-content-warp-min{
+	width: 1000px;
+	margin-left:auto;
+	margin-right: auto;
+	overflow: hidden;
+}
+.m-main-warp{
+    position: absolute;
+    z-index: 0;
+    width: 1000px;
+    left: 50%;
+    margin-left: -500px;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.color_999 {
+    color: #999;
+}.pb_15 {
+    padding-bottom: 15px;
+}

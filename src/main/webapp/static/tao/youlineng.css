@@ -1,0 +1,322 @@
+body{
+    padding: 0;
+    margin:0;
+    font-family:'微软雅黑';
+    font-family: "Microsoft YaHei" ! important;
+}
+.youlineng-top,.youlineng-top img,.youlineng-middle,.youlineng-middle>img{
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.main{
+    float: left;
+    width: 100%;
+    background: -webkit-linear-gradient(right top,#75d6b7, #6286cf , #fff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(bottom left,#75d6b7, #6286cf, #fff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom left,#75d6b7, #6286cf, #fff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom left,#75d6b7, #6286cf , #fff); /* 标准的语法（必须放在最后） */
+}
+.main>img{
+    float: left;
+    width: 100%;
+}
+.main-six{
+    float: left;
+    width: 66%;
+    margin-left: 17%;
+}
+.fl-full{
+    float: left;
+    width: 100%;
+}
+.main-one{
+    border-bottom: #987304 solid 2px;
+}
+.main-one .h-title,.main-one .s-title{
+    text-align: center;
+    color: #fff;
+}
+.main-one .h-title{
+    font-size: 26px;
+    margin-top: 6.6em;
+}
+.main-one .h-title>img{
+    height: 66px;
+}
+.main-one .s-title{
+    font-size: 26px;
+    margin-bottom: 2em;
+}
+.main-one:nth-child(odd) .main-page-img{
+    float: left;
+    text-align: center;
+}
+.main-one:nth-child(even) .main-page-img{
+    float: right;
+    text-align: center;
+}
+.main-one .main-page-img{
+    width: 48%;
+    height: 336px;
+    overflow: hidden;
+}
+.main-one .main-page-img img{
+    height: 336px;
+    width: auto;
+}
+.main-one:nth-child(even) .main-page-p{
+    float: left;
+    margin-right: 4%;
+    padding-left: 2%;
+}
+.main-one:nth-child(odd) .main-page-p{
+    float: right;
+    margin-left: 4%;
+    padding-right: 2%;
+}
+.main-one .main-page-p{
+    width: 46%;
+    text-indent:2em;
+    line-height: 28px;
+    color: #fff;
+    font-size: 17px;
+}
+.main-one:nth-child(1) .main-page-p{
+    padding-top: 4em;
+}
+.main-one:nth-child(2) .main-page-p{
+    padding-top: 5em;
+}
+.main-one:nth-child(3) .main-page-p{
+    padding-top: 5em;
+}
+.main-one:nth-child(4) .main-page-p{
+    padding-top: 3em;
+}
+.main-one:nth-child(5) .main-page-p{
+    padding-top: 4em;
+}
+.main-one:nth-child(6) .main-page-p{
+    padding-top: 4em;
+}
+.main-one:nth-child(7) .main-page-p{
+    padding-top: 4em;
+}
+.main-one:nth-child(8){
+    border: none;
+}
+.main-seven-img-a,.main-seven-img-b{
+    text-align: center;
+}
+.main-seven-img-a img{
+    width: 88%;
+}
+.main-seven-img-b{
+    border-bottom: #987304 solid 2px;
+}
+.main-seven-img-b img{
+    height: 218px;
+    border: #5f4c84 solid 8px;
+    margin-bottom: -4px;
+    margin-top: 2em;
+}
+.main-seven-img-b img:nth-child(2){
+    margin-left: -8px;
+}
+.join-in,.sign2017{
+    float: left;
+    width: 36%;
+    padding-top: 9.9em;
+}
+.join-in{
+    padding-left: 6%;
+}
+.join-in .join-in-title>img{
+    height: 46px;
+    margin-bottom: .8em;
+}
+.join-in p{
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    font-size: 20px;
+    line-height: 22px;
+    color: #987304;
+}
+.join-in p>span{
+    font-size: 28px;
+    font-weight: bold;
+}
+.sign2017{
+    float: right;
+    padding-right: 6%;
+    text-align: right;
+}
+.sign2017 img{
+    height: 116px;
+}
+.footer{
+    background-color: #cf1151;
+    color: #282828;
+    padding: 3.6em 0 1.6em 0;
+}
+.footer .footer-top,.footer .footer-bottom{
+    float: left;
+    text-align: center;
+}
+.footer .footer-top{
+    width: 80%;
+    margin-left:10%;
+    font-size: 18px;
+    border-bottom: #ecd859 solid 2px;
+    color: #fff;
+}
+.footer .footer-top a{
+    color: #fff;
+    text-decoration: none;
+}
+.footer .footer-top img{
+    height: 16px;
+}
+.footer .footer-bottom{
+    width: 100%;
+    font-size: 14px;
+}
+.bottom{
+    margin-bottom: 88px;
+}
+/*iPad*/
+@media (max-width: 768px){
+    .main-six {
+        width: 88%;
+        margin-left: 6%;
+    }
+    .main-one .h-title>img{
+        height: 46px;
+    }
+    .main-one .s-title{
+        font-size: 22px;
+    }
+    .main-one .main-page-img,.main-one .main-page-img img{
+        height: 266px;
+    }
+    .main-one .main-page-p{
+        line-height: 18px;
+        font-size: 14px;
+    }
+    .main-seven-img-b img{
+        height: 166px;
+        margin-top: 6em;
+    }
+    .join-in{
+        padding-left: 0;
+    }
+    .sign2017{
+        padding-right: 0;
+    }
+    .join-in .join-in-title>img{
+        height: auto;
+        width: 100%;
+    }
+    .join-in p{
+        font-size: 16px;
+        line-height: 17px;
+    }
+    .sign2017 img{
+        height: auto;
+        width: 100%;
+    }
+    .footer .footer-top{
+        width: 96%;
+        margin-left: 2%;
+    }
+    .footer{
+        padding-top: 1.6em;
+    }
+    .footer .footer-top{
+        font-size: 16px;
+    }
+}
+/*pc*/
+@media(min-width: 1666px){
+    .main-six{
+        width: 56%;
+        margin-left: 22%;
+    }
+}
+/*phone*/
+@media (max-width: 767px) {
+    .main-one .h-title>img{
+        height: 22px;
+    }
+    .main-one .s-title{
+        font-size: 14px;
+    }
+    .main-one .h-title{
+        margin-top: 1.6em;
+    }
+    .main-one .main-page-p{
+        line-height: 14px;
+        font-size: 12px;
+    }
+    .main-one:nth-child(1) .main-page-p{
+        padding-top: 0;
+    }
+    .main-one:nth-child(2) .main-page-p{
+        padding-top: 0;
+    }
+    .main-one:nth-child(3) .main-page-p{
+        padding-top: 0;
+    }
+    .main-one:nth-child(4) .main-page-p{
+        padding-top: 0;
+    }
+    .main-one:nth-child(5) .main-page-p{
+        padding-top: 0;
+    }
+    .main-one:nth-child(6) .main-page-p{
+        padding-top: 0;
+    }
+    .main-one:nth-child(7) .main-page-p{
+        padding-top: 0;
+    }
+    .main-one .main-page-img,.main-one .main-page-p,.main-one:nth-child(odd) .main-page-p,.main-one:nth-child(even) .main-page-p{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .main-one .main-page-img, .main-one .main-page-img img{
+        height: auto;
+        width: 100%;
+    }
+    .main-seven-img-b img{
+        height: 106px;
+        border: #5f4c84 solid 3px;
+        margin-top: 0;
+    }
+    .main-seven-img-b img:nth-child(2){
+        margin-left: -3px;
+    }
+    .join-in p{
+        font-size: 14px;
+        line-height: 15px;
+    }
+    .join-in,.sign2017{
+        padding-top: 2.9em;
+    }
+    .bottom{
+        margin-bottom: 66px;
+    }
+    .footer .footer-top{
+        font-size: 13px;
+    }
+    .footer .footer-top img{
+        display: none;
+    }
+    .footer .footer-bottom{
+        font-size: 12px;
+    }
+    .main-seven-img-a{
+        margin-bottom: 3.6em;
+    }
+}

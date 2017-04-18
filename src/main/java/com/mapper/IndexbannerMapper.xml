@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.IndexbannerMapper">
+  <resultMap id="BaseResultMap" type="com.model.Indexbanner">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="t_id" jdbcType="INTEGER" property="id" />
+    <result column="t_url" jdbcType="VARCHAR" property="url" />
+    <result column="t_title" jdbcType="VARCHAR" property="title" />
+    <result column="t_picture" jdbcType="VARCHAR" property="pic" />
+    <result column="t_position" jdbcType="VARCHAR" property="position" />
+    <result column="t_platform" jdbcType="VARCHAR" property="platform" />
+    <result column="t_groundtime" jdbcType="TIMESTAMP" property="groundtime" />
+    <!-- 
+    <result column="releaseTime" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="endTime" jdbcType="TIMESTAMP" property="endTime" />
+     -->
+    <result column="t_sort" jdbcType="INTEGER" property="sort" />
+    <result column="t_status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  
+ <select id="pageBanner" resultMap="BaseResultMap">
+		SELECT 
+		t_id,t_url,t_title,
+		t_picture,t_sort,t_status,
+		t_position,t_platform,t_groundtime 
+		FROM t_indexbanner
+		WHERE 1=1 ORDER BY t_id DESC
+	</select>
+	
+	<select id="findOne" parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+		SELECT 
+		t_id,t_url,t_title,
+		t_picture,t_sort,t_status,
+		t_position,t_platform,t_groundtime
+		FROM t_indexbanner
+		WHERE t_id = #{id}  ORDER BY t_id DESC
+	</select>
+	<!-- 条件查询 -->
+	  
+	<select id="pageByConIndexBanner" parameterType="com.model.pojo.PagePojo" resultMap="BaseResultMap">
+		SELECT 
+		t_id,t_url,t_title,
+		t_picture,t_sort,t_status,
+		t_position,t_platform,t_groundtime
+		FROM t_indexbanner
+		WHERE 1=1
+		<if test='name != ""'>
+			AND t_position like '%${name}%'
+		</if>
+		<if test='type != ""'>
+			AND t_status=#{type}
+		</if>
+		<if test='beginTime != ""'>
+			<![CDATA[AND t_groundtime>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND t_groundtime<#{endTime} ]]>
+		</if>
+		ORDER BY t_id DESC
+	</select>
+	
+	<!-- 删除单个或者多个 -->
+	<delete id="deleteBatch" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM t_indexbanner WHERE t_id in(${ids})
+	</delete>
+	<!-- 录入数据  -->
+	<insert id="add" parameterType="com.model.Indexbanner">
+		INSERT INTO t_indexbanner (
+		 t_url,
+		 t_title,
+		 t_picture,
+		 t_sort,
+		 t_position,
+		 t_platform,
+		 t_status,
+		 t_groundtime 
+		)
+		VALUES
+		  (
+		    #{url},
+		    #{title},
+		    #{pic},
+		    #{sort},
+		    #{position},
+		    #{platform},
+		    #{status},
+		    #{groundtime}
+		  )
+	</insert>
+	<!-- 修改数据 -->
+	<update id="update" parameterType="com.model.Indexbanner">
+		update
+		  t_indexbanner
+		set
+		 t_url = #{url},
+		 t_title = #{title},
+		 t_picture = #{pic},
+		 t_sort = #{sort},
+		 t_position = #{position},
+		 t_platform = #{platform},
+		 t_status = #{status},
+		 t_groundtime = #{groundtime} 
+		 where t_id = #{id}
+	</update>
+	
+  <select id="search" parameterType="java.lang.String"  resultMap="BaseResultMap">
+		SELECT 
+		t_id,t_url,t_title,
+		t_picture,t_sort,t_status,
+		t_position,t_platform,t_groundtime
+		FROM t_indexbanner
+		WHERE  t_status="已上线" 
+		<if test='platform !=null and platform !=""'>
+		  AND t_platform!=#{platform}
+		</if>
+		<if test='title !=null and title !=""'>
+		  AND t_title like '%${title}%'
+		</if>
+		<if test='position !=null and position !=""'>
+		  AND t_position =#{position}
+		</if>
+		ORDER by t_groundtime DESC
+	</select>
+  
+</mapper>

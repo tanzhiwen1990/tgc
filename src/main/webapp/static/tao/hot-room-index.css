@@ -1,0 +1,119 @@
+.seach-input {
+	margin: 34px 0;
+}
+
+.seach-input input {
+    float: left;
+    width: 714px;
+    height: 45px;
+    line-height: 45px;
+    text-indent: 14px;
+    font-size: 18px;
+    border: 1px solid #0c1e2a;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.seach-input a {
+    float: left;
+    height: 45px;
+    width: 84px;
+    background-color: #0c1e2a;
+    border: 1px solid #0c1e2a;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    margin-left: 5px;
+}
+.seach-input a:hover{
+    background-color: #fff;
+    color: #0c1e2a;
+}
+.hot-warp{
+    float: left;
+    width: 100%;
+}
+.hot-content .item {
+	float: left;
+    width: 260px;
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+.hot-content .item:nth-child(4n+1){
+    margin-left: 0;
+}
+.hot-content .item .img-warp{
+	display: block;
+	width: 260px;
+	height: 210px;
+	position: relative;
+}
+.hot-content .item .img-warp span{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	height: 24px;
+    line-height: 24px;
+    padding: 0 19px;
+    text-align: center;
+    color: #FFF;
+    background: #0c1e2a;
+    font-size: 12px;
+}
+.hot-content .item .img-warp img{
+	height: 100%;
+	width: 100%;
+}
+.hot-content .item .text-warp{
+	padding: 12px 0 14px 0;
+}
+.hot-content .item .text-warp .left{
+	float: left;
+    width: 190px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.hot-content .item .text-warp .left .top{
+	height: 18px;
+    font-size: 16px;
+}
+.hot-content .item .text-warp .left .bom{
+	 width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 2px 0 0 0;
+    min-height: 18px;
+    font-size: 14px;
+    color: #999;
+}
+.hot-content .item .text-warp .right{
+	float: left;
+	/*
+	 width: 80px;
+	text-overflow: ellipsis;
+	*/
+    width: 100px;
+    height: 29px;
+    padding: 8px 0 0 0;
+    color: #555;
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    white-space: nowrap;
+    
+}
+.hot-content .item .text-warp .right em{
+	font-size: 16px;
+	font-style: normal;
+}
+
+.m-page-warp{
+	width: 1100px;
+	padding-top: 66px;
+	padding-bottom: 116px;
+    text-align: center;
+}

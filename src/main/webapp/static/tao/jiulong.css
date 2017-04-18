@@ -1,0 +1,163 @@
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,input,form,a,p,textarea,span{
+    margin:0;
+    padding:0;
+    font-family:'微软雅黑';
+    font-family: "Microsoft YaHei" ! important;
+    /*font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", 微软雅黑, "Segoe UI", Tahoma, 宋体b8b体, SimSun, sans-serif;*/
+
+}
+body{
+    background-color: #3c8c93;
+}
+img{
+    border:none;
+    margin: 0;
+}
+.top{
+    position: absolute;
+    width: 100%;
+    top: 40px;
+}
+.imgthree,.bottom{
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding:0;
+}
+.middle{
+    position: absolute;
+    width: 1000px;
+    left: 50%;
+    margin-left: -500px;
+    background-color: #ffffff;
+}
+.top img,.middle>img{
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.middle-a{
+    float: left;
+    width: 100%;
+    text-align: center;
+    height: 44px;
+    padding: 18px 0;
+}
+.middle-a>img{
+    height: 44px;
+}
+.middle-b>img{
+    float: left;
+    width: 20%;
+    height: auto;
+}
+.imgthree>img{
+    float: left;
+    width: 33.3%;
+    height: auto;
+}
+.imgthree>img:nth-child(2){
+    width: 33.4%;
+}
+.imgthree-a{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    padding: 66px 0;
+    margin-top: -18px;
+}
+.imgthree-a>img{
+    height: 28px;
+}
+.imgthree-a:nth-child(4),.imgthree-a:nth-child(6){
+    background-color: #f06c60;
+}
+.imgthree-a:nth-child(5){
+    background-color: #7cbbc0;
+    width: 33.4%;
+}
+.bottom{
+    background-color: #3c8c93;
+    text-align: center;
+    padding-top: 66px;
+}
+.bottom>img{
+    height: 48px;
+}
+.bottom>span{
+    float: left;
+    width: 96%;
+    margin-left: 2%;
+    margin-top: 66px;
+    text-align: center;
+    color: #c8dada;
+    border-top:  #c8dada solid 2px;
+    height: 28px;
+    font-size: 14px;
+}
+/*iPad*/
+@media (width: 768px) {
+    .middle{
+        width: 666px;
+        left: 50%;
+        margin-left: -333px;
+    }
+    .middle-a{
+        height: 26px;
+        padding: 8px 0;
+    }
+    .middle-a>img{
+        height: 26px;
+    }
+    .imgthree-a>img{
+        height: 18px;
+    }
+    .bottom>img{
+        height: 36px;
+    }
+    .bottom>span{
+        font-size: 12px;
+    }
+}
+/*Phone*/
+@media (max-width: 767px) {
+    .middle{
+        width: 100%;
+        left: 0;
+        margin-left: 0;
+    }
+    .middle-a{
+        height: auto;
+        padding: 8px 0;
+    }
+    .middle-a>img{
+        float: left;
+        width: 50%;
+        margin-left: 25%;
+        height: auto;
+    }
+    .imgthree-a{
+        padding: 18px 0;
+        margin-top: -8px;
+        min-height: 22px;
+    }
+    .imgthree-a>img{
+        float: left;
+        width: 80%;
+        margin-left: 10%;
+        height: auto;
+    }
+    .bottom{
+        padding-top: 33px;
+    }
+    .bottom>img{
+        float: left;
+        width: 90%;
+        margin-left: 5%;
+        height: auto;
+    }
+    .bottom>span{
+        margin-top: 33px;
+        font-size: 10px;
+    }
+}

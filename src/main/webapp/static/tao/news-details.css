@@ -1,0 +1,123 @@
+
+.news-content{
+	width: 750px;
+	padding: 50px 35px 70px 35px;
+	border: 1px solid #e0e0e0;
+	float: left;
+	margin-bottom: 60px;
+	color: #333;
+	text-indent: 2em;
+}
+.news-content h1{
+	font-size: 30px;
+	text-align: center;
+}
+.content-heard{
+	margin-top: 36px;
+	margin-bottom: 26px;
+	text-align: center;
+}
+.content-heard span{
+	margin-right: 20px;
+}
+.text-content{
+	line-height: 56px;
+	font-size: 18px;
+	text-indent:2em
+}
+
+.content-footer{
+	margin-top: 18px;
+	margin-bottom: 76px;
+}
+.content-footer span{
+	float: left;
+	line-height: 28px;
+	margin-right: 10px;
+}
+.content-footer .bdsharebuttonbox{
+	float: right;
+}
+.news-list{
+	line-height: 42px;
+}
+.news-list span{
+    color: #ff503f;
+}
+.news-list a:hover{
+	text-decoration: underline;
+}
+
+.news-hot{
+	float: right;
+	width: 270px;
+}
+#swiper,.swiper-slide,.swiper-slide img{
+	width: 270px;
+	height: 184px;
+}
+
+
+.swiper-pagination-1{
+	  position: absolute;
+  z-index: 20;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+.swiper-pagination-switch{
+	  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 9px;
+background-color: rgba(255,255,255,.2);
+  margin: 0 5px;
+  cursor: pointer;
+}
+.swiper-active-switch {
+	 background: #fff;
+  
+}
+
+.swiper-text{
+	font-size: 18px;
+	color: #525252;
+}
+.swiper-text a:hover{
+	text-decoration: underline;
+}
+
+.news-new{
+	padding-left: 6px;
+	padding-right: 23px;
+	padding-bottom: 55px;
+	margin-top: 10px;
+	background: url(../img/tao/news-new.png) no-repeat right top  #f3f3f3;
+}
+.news-new p{
+	height: 60px;
+	line-height: 60px;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+.news-new li{
+	line-height: 54px;
+	height: 40px;
+    display: -webkit-box;
+	display: -moz-box;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	border-bottom: 1px solid #c6c6c6;
+	text-indent: 8px;
+	font-size: 14px;
+}
+.news-new li a:hover{
+	color: #ff503f;
+}
+
+.news-content img{
+	max-width:95%;
+}

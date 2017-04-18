@@ -1,0 +1,8 @@
+/*.classpath
+/*.project
+/.settings
+/target
+/.externalToolBuilders
+.idea/
+/images/
+TestMaven.iml

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mapper.FriendLinkMapper">
+
+ <resultMap id="BaseResultMap" type="com.model.FriendLink">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="friend_link_id" jdbcType="INTEGER" property="id" />
+    <result column="friend_link_companyname" jdbcType="VARCHAR" property="companyname" />
+    <result column="friend_link_description" jdbcType="VARCHAR" property="description" />
+    <result column="friend_link_logo" jdbcType="VARCHAR" property="logo" />
+    <result column="friend_link_url" jdbcType="VARCHAR" property="linkurl" />
+    <result column="friend_link_status" jdbcType="VARCHAR" property="status" />
+    <result column="friend_link_userName" jdbcType="VARCHAR" property="username" />
+    <result column="friend_link_time" jdbcType="TIMESTAMP" property="releaseDate" />
+  </resultMap>
+	<select id="pageFriendLink" resultMap="BaseResultMap">
+		SELECT
+		    friend_link_id,
+			friend_link_companyname,
+			friend_link_description,
+			friend_link_logo,
+			friend_link_status,
+			friend_link_url,
+			friend_link_userName,
+			friend_link_time
+		FROM friend_link 
+		WHERE 1=1 ORDER BY friend_link_id DESC
+	</select>
+	
+	<select id="findOne" parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+		SELECT
+		    friend_link_id,
+			friend_link_companyname,
+			friend_link_description,
+			friend_link_logo,
+			friend_link_status,
+			friend_link_url,
+			friend_link_userName,
+			friend_link_time
+		FROM friend_link 
+		 where friend_link_id = #{id}
+	</select>
+	<!-- 条件查询 -->
+	  
+	<select id="pageByConFriendLink"  resultMap="BaseResultMap">
+		SELECT
+		    friend_link_id,
+			friend_link_companyname,
+			friend_link_description,
+			friend_link_logo,
+			friend_link_status,
+			friend_link_url,
+			friend_link_userName,
+			friend_link_time
+		FROM friend_link 
+		WHERE 1=1
+		<if test='beginTime != ""'>
+			<![CDATA[AND friend_link_time>#{beginTime}]]>
+		</if>
+		<if test='endTime != ""'>
+			<![CDATA[AND friend_link_time<#{endTime} ]]>
+		</if>
+		ORDER BY friend_link_id DESC
+	</select>
+	
+	<!-- 删除单个或者多个 -->
+	<delete id="delete" parameterType="com.model.pojo.DeletePojo">
+		DELETE FROM friend_link WHERE friend_link_id in(${ids})
+	</delete>
+	<!-- 录入数据  -->
+	<insert id="save" parameterType="com.model.FriendLink">
+		INSERT INTO friend_link (
+		 friend_link_companyname,
+		 friend_link_description,
+		 friend_link_logo ,
+		 friend_link_status, 
+		 friend_link_url ,
+		 friend_link_userName ,
+		 friend_link_time 
+		)
+		VALUES
+		  (
+		    #{companyname},
+		    #{description},
+		    #{logo},
+		    #{status},
+		    #{linkurl},
+		    #{username},
+		    #{releaseDate}
+		  )
+	</insert>
+	<!-- 修改数据 -->
+	<update id="update" parameterType="com.model.FriendLink">
+		update
+		  friend_link
+		set
+		 friend_link_companyname = #{companyname},
+		 friend_link_description = #{description},
+		 friend_link_logo = #{logo},
+		 friend_link_status = #{status},
+		 friend_link_url = #{linkurl},
+		 friend_link_userName = #{username},
+		 friend_link_time = #{releaseDate}
+		 where friend_link_id = #{id}
+	</update>
+	
+	<!-- 查找已上线的 -->
+	<select id="findShow"  resultMap="BaseResultMap">
+		SELECT
+			friend_link_id,
+			friend_link_companyname,
+			friend_link_description,
+			friend_link_logo,
+			friend_link_status,
+			friend_link_url,
+			friend_link_userName,
+			friend_link_time
+		FROM
+	    	friend_link
+		WHERE 
+			friend_link_status='已上线'
+		ORDER BY 
+			friend_link_id DESC
+	</select>
+	
+	
+</mapper>

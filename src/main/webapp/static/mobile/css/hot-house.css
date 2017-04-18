@@ -1,0 +1,75 @@
+.seach-warp{
+	padding: .1rem .32rem;
+}
+.seach-warp .buxian{
+	font-size: .28rem;
+	color: #185dc6;
+	padding-right: .1rem;
+	background: url(../img/buxian.png) no-repeat center right;
+	background-size: .2rem .11rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1rem;
+}
+#txt_area1{
+	border: none;
+}
+.input-warp{
+	height: .7rem;
+	display: flex;
+}
+.search{
+    height: .7rem;
+    width: 6.6rem;
+    background: none;
+    /*border-radius: .05rem 0 0 .05rem;
+    border: #0c1e2a solid 1px;
+    border-right: none;*/
+    padding-left: .1rem;
+    border-bottom: #0c1e2a solid 1px;
+}
+.u-seach-btn{
+	width: .68rem;
+    height: .7rem;
+    background: url(../img/search-btn1.png) no-repeat center;
+    background-size: 60%;
+    border-bottom: #0c1e2a solid 1px;
+}
+.house-warp {
+	padding: 0 .22rem;
+	background-color: #fff;
+}
+.house-warp .house-item{
+	display: flex;
+	border-bottom: 1px solid #e0e0e0;
+	padding-bottom: .2rem;
+	padding-top: .2rem;
+	color: #383a41;
+}
+.house-warp .img-warp{
+	width: 2.3rem;
+	height: 1.72rem;
+}
+.house-warp .text-warp{
+	height: 1.72rem;
+	width: 4.52rem;
+	position: relative;
+	padding-left: .22rem;
+}
+.house-warp .text-warp h2{
+	font-size: .3rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	margin-bottom: .06rem;
+}
+.house-warp .text-warp p{
+	font-size: .24rem;
+	color: #8b8b8b;
+	line-height: .42rem;
+}
+.house-warp .text-warp p span{
+	font-size: .3rem;
+	color: #ea3b24;
+}

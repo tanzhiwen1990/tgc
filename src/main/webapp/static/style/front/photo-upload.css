@@ -1,0 +1,122 @@
+.photo_page header{background: #1A1A1A;}
+.photo_page .title{color: #fff;}
+.photo_page .icon{color: #fff;font-size: .9rem;}
+.photo_page .list-block{ margin: 0px;}
+.photo_page .button{color: #000;font-size: .75rem;}
+.cz_img_box {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo_page .cz_img_box:after {
+    content: '';
+    display: block;
+    margin-top: 100%; /* margin 百分比相对父元素宽度计算 */
+}
+
+.cz_upfile {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.upload_box_img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.img_checkbox {
+    position: absolute;
+    right: .3rem;
+    top: .3rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0.45;
+    border: 2px solid #fff;
+    z-index: 100;
+}
+
+.img_checked_icon {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-size: .7rem !important;
+}
+
+.img_checkbox_checked {
+    border: 0;
+    opacity: 1;
+    background: #323131;
+    color: #D0D0D0;
+}
+
+.photo_page .preview-btn {
+    margin-left: .5rem !important;
+}
+
+.photo_page .bar-tab {
+    height: 2.2rem;
+    background: #fff;
+}
+
+.photo_page .next-btn {
+    color: #000;
+    border: 1px solid #000;
+    margin-right: .5rem !important;
+    top: .45rem !important;
+}
+
+.photo_page {
+    background: #F6F6F6;
+}
+.photo_page .item-title {
+    width: 5.5rem;
+    flex-shrink: 0;
+}
+
+.photo_page .list-block .item-content {
+    padding-left: .65rem;
+}
+
+.photo_page .list_img {
+    width: 5.5rem;
+    height: 5.5rem;
+}
+
+.photo_page .list-block .item-inner {
+    padding-top: .45rem;
+    padding-bottom: .45rem;
+}
+
+.photo_page .item-input {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.photo_page .item-input textarea {
+    height: 5.5rem;
+    margin-left: .6rem;
+    width: 96%;
+    background: #F6F6F6;
+    border-radius: 5px;
+    padding: .6rem;
+}
+
+.photo_page ::-webkit-input-placeholder {
+    color: #585858;
+}
+
+.photo_page ::-moz-placeholder {
+    color: #585858;
+}
